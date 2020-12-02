@@ -44,17 +44,21 @@ def input_tokens(day, delim=None):
 def generate_day(day, download_input=False):
     filled = str(day).zfill(2)
     path = "solutions/" + filled
+    print(f"Generating directory for day {filled}!")
 
     if os.path.isdir(path):
         raise ValueError("File structure already exists")
     else:
         # Create directory
+        print("Creating directory")
         os.mkdir(path)
         # Get input if enabled
         if download_input:
+            print("Downloading input")
             get_input(day)
 
         # Create python file
+        print("Creating solution.py")
         py_file = open(path + "/solution.py", 'w')
         py_file.write(
             f"""#Advent of Code {YEAR} day {day}
@@ -76,6 +80,7 @@ print(f"Second: {{second}}")
         py_file.close()
 
         # Create c++ file
+        print("Creating solution.h")
         cpp_file = open(path + "/solution.h", 'w')
         cpp_file.write(
             f"""//Advent of Code {YEAR} day {day}
@@ -110,6 +115,9 @@ void solution(){{
 """
         )
         cpp_file.close()
+
+        print("Modifying main.cpp")
+        # Modify c++ main
         cpp_main = open("main.cpp", 'w')
         cpp_main.write(
             f"""#include "solutions/{filled}/solution.h"
@@ -123,6 +131,7 @@ int main() {{
         )
         cpp_main.close()
 
+        print("Creating solution.jl")
         jl_file = open(path + "/solution.jl", 'w')
         jl_file.write(
             f"""#Advent of Code {YEAR} day {day}
@@ -160,5 +169,7 @@ solution()
 
 
 if __name__ == "__main__":
-    day = 2
+    import datetime
+    day = datetime.datetime.today().day
+    #day = 3
     generate_day(day, True)
