@@ -12,6 +12,7 @@
 #include <tuple>
 #include <functional>
 #include <chrono>
+#include <iostream>
 
 template<typename T_token>
 std::vector<T_token> loadTokens(const std::string& filepath){

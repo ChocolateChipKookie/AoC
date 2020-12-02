@@ -1,7 +1,7 @@
-#include <iostream>
-#include "solutions/day02/solution.h"
+#include "solutions/02/solution.h"
 
 int main() {
-    time_solution(solution);
+    solution();
+    //time_solution(solution);
     return 0;
 }

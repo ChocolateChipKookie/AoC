@@ -8,7 +8,7 @@
 #include <iostream>
 #include <algorithm>
 
-std::string sourceDirectory = "../solutions/day02";
+std::string sourceDirectory = "../solutions/02";
 
 void taks_01(){
     auto data = loadTokens<std::string>(sourceDirectory + "/input");

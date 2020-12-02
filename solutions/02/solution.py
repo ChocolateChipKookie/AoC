@@ -1,4 +1,13 @@
-policy = [(*map(int, x[0].split("-")), x[1][0], x[2]) for x in [x.split(" ") for x in open("input").read().strip().split('\n')]]
+from util import *
+DAY = 2
+
+def get_data():
+    return input_lines(DAY)
+
+data = get_data()
+print(data)
+
+policy = [(*map(int, x[0].split("-")), x[1][0], x[2]) for x in [x.split(" ") for x in data]]
 print(f"First: {sum(1 for x in policy if x[0] <= x[3].count(x[2]) <= x[1])}")
 print(f"Second: {sum(1 for x in policy if (x[3][x[0]-1] == x[2]) != (x[3][x[1]-1] == x[2]))}")
 

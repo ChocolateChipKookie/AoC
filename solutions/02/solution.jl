@@ -38,7 +38,7 @@ end
 
 function golf()
     data = [(parse.(Int, split(x[1], '-'))..., x[2][1], x[3]) for x in [split(x) for x in split(strip(read((@__DIR__) * "/input", String)), "\n")]]
-    println("First:  $(count(p -> countmap(p[4])[p[3]] in p[1]:p[2], data))")
+    println("First:  $(count(p -> count(x-> x == p[3], p[4]) in p[1]:p[2], data))")
     println("Second: $(count(p -> count(x -> p[4][p[x]] == p[3], 1:2) == 1, data))")
     return
 end
