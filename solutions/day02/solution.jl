@@ -1,4 +1,5 @@
 # Define input path
+using StatsBase
 input_path = (@__DIR__) * "/input"
 
 function load(file_path=input_path)
@@ -35,10 +36,22 @@ function task2(data)
         data)
 end
 
+function golf()
+    data = [(parse.(Int, split(x[1], '-'))..., x[2][1], x[3]) for x in [split(x) for x in split(strip(read((@__DIR__) * "/input", String)), "\n")]]
+    println("First:  $(count(p -> countmap(p[4])[p[3]] in p[1]:p[2], data))")
+    println("Second: $(count(p -> count(x -> p[4][p[x]] == p[3], 1:2) == 1, data))")
+    return
+end
+
 function solution()
     data = load()
     println("First: $(task1(data))")
     println("Second: $(task2(data))")
 end
 
+solution()
+golf()
+println("Solution")
 @time solution()
+println("Golf")
+@time golf()
