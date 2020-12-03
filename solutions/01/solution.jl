@@ -9,10 +9,8 @@ end
 function task1(data)
     for i in data
         for j in data
-            for k in data
-                if i + j + k == 2020
-                    return i * j * k
-                end
+            if i + j == 2020
+                return i * j
             end
         end
     end
@@ -32,8 +30,12 @@ end
 
 function solution()
     data = load()
-    println(task1(data))
-    println(task2(data))
+    println("First:  $(task1(data))")
+    println("Second: $(task2(data))")
 end
 
+"""
+First:  158916
+Second: 165795564
+"""
 solution()

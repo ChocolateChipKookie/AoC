@@ -45,13 +45,13 @@ end
 
 function solution()
     data = load()
-    println("First: $(task1(data))")
+    println("First:  $(task1(data))")
     println("Second: $(task2(data))")
 end
 
+"""
+First:  603
+Second: 404
+"""
 solution()
-golf()
-println("Solution")
-@time solution()
-println("Golf")
-@time golf()
+
