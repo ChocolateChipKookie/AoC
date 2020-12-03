@@ -63,7 +63,7 @@ def generate_day(day, download_input=False):
         py_file.write(
             f"""#Advent of Code {YEAR} day {day}
 from util import *
-DAY = 2
+DAY = {day}
 
 def get_data():
     return input_lines(DAY)
@@ -142,7 +142,6 @@ function load(file_path=input_path)
     data = read((@__DIR__) * "/input", String)
     # Split into lines
     lines = split(strip(data), "\\n")
-    # Create named tuple from data
     return lines
 end
 
@@ -169,7 +168,9 @@ solution()
 
 
 if __name__ == "__main__":
-    import datetime
-    day = datetime.datetime.today().day
-    #day = 3
+    day = None  # Override here
+    if day is None:
+        import datetime
+        day = datetime.datetime.today().day
+
     generate_day(day, True)

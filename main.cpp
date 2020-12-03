@@ -1,4 +1,4 @@
-#include "solutions/02/solution.h"
+#include "solutions/03/solution.h"
 
 int main() {
     solution();
