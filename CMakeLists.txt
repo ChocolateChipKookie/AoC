@@ -8,6 +8,6 @@ set(CMAKE_BUILD_TYPE Release)
 add_executable(AoC
         main.cpp
         util.h
-        solutions/01/solution.h
-        solutions/02/solution.h
+        AoC2020/solutions/01/solution.h
+        AoC2020/solutions/02/solution.h
         )

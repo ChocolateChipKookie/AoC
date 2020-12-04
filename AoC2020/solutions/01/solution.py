@@ -1,8 +1,10 @@
 import itertools
 import numpy
 
-print(numpy.prod(next(filter(lambda x: sum(x) == 2020, itertools.product(*([[x for x in map(int, open("input").read().split())]] * 2))))))
-print(numpy.prod(next(filter(lambda x: sum(x) == 2020, itertools.product(*([[x for x in map(int, open("input").read().split())]] * 3))))))
+print(numpy.prod(next(filter(lambda x: sum(x) == 2020, itertools.product(*([[x for x in map(int, open(
+    "input").read().split())]] * 2))))))
+print(numpy.prod(next(filter(lambda x: sum(x) == 2020, itertools.product(*([[x for x in map(int, open(
+    "input").read().split())]] * 3))))))
 
 """
 print(                                                                      # 9. Print the solution

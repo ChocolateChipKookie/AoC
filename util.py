@@ -1,4 +1,4 @@
-import os.path
+import os
 from aocd import get_data
 import re
 import datetime
@@ -6,8 +6,9 @@ import datetime
 YEAR = datetime.datetime.today().year
 
 
-def get_input(day, year=YEAR):
-    path = "solutions/" + str(day).zfill(2) + '/input'
+def get_input(day, year=YEAR, path=None):
+    if path is None:
+        path = f"AoC{year}/solutions/{str(day).zfill(2)}/input"
 
     if year == YEAR:
         if os.path.isfile(path):
@@ -20,6 +21,20 @@ def get_input(day, year=YEAR):
             return puzzle_input
     else:
         return get_data(day=day, year=year)
+
+
+def set_output(first, second, day, year=YEAR, path=None):
+    if path is None:
+        path = f"AoC{year}/solutions/{str(day).zfill(2)}/output"
+
+    out_file = open(path, 'w')
+    out_file.write(
+        f"""---Advent of Code {YEAR} day {day}---
+First:  {first}
+Second: {second}
+"""
+    )
+    out_file.close()
 
 
 def get_lines(string):
@@ -42,22 +57,106 @@ def input_tokens(day, delim=None):
     return [x.strip() for x in get_input(day).strip().split(delim)]
 
 
-def generate_day(day, download_input=False):
+def update_readme():
+    """
+        Updates README.md file for the git solution
+        How it works:
+            It reads the readme file, and looks for the marker in the file
+            If it finds the marker, it writes from the position onwards
+            If it doesn't it appends it to the file
+
+            It looks for all the year files of format AoC2018, AoC2019, AoC2020...
+            In that files there is a solutions folder with solutions for every solved day
+            For a given year it lists out all the solutions in the given year's file
+    """
+    # Find years
+    year_paths = sorted([(path, int(path[3:])) for path in os.listdir('.') if re.match("^AoC20\d{2}$", path)])
+
+    # Define solution marker
+    solutions_marker = "SOLUTIONS"
+    marker_tag = f"<!{solutions_marker}>"
+    # Create marker and marker caution
+    marker_text = f"""{marker_tag}
+<!-- Do not remove this lines, and write nothing after the {marker_tag} tag -->
+<!--       They are used as marker for the generate_readme() function       -->"""
+
+    # Default readme path name
+    readme_path = "README.md"
+    # Find readmes of any case
+    readme_paths = [path for path in os.listdir('.') if re.match("^readme.md$", path, flags=re.IGNORECASE)]
+    # If there are several readmes, raise error
+    if len(readme_paths) > 1:
+        raise ValueError("Too many README.md files!")
+    # If there is only one readme, set the readme_path to the value
+    if len(readme_paths) == 1:
+        readme_path = readme_paths[0]
+
+    # Read current readme
+    with open(readme_path, 'r') as file:
+        readme = file.read()
+
+    with open(readme_path, 'r+') as readme_updated:
+        # Finds marker position
+        tag_pos = readme.find(marker_tag)
+        # If it didn't find anything, append
+        if tag_pos < 0:
+            readme_updated.seek(len(readme))
+        # Overwrite else
+        else:
+            readme_updated.seek(tag_pos)
+
+        # Write marker text
+        readme_updated.write(marker_text)
+        # Start solutions section
+        readme_updated.write("\n\n## Solutions")
+
+        # For every year
+        for file, year in year_paths:
+            # Write what year it is
+            readme_updated.write(f"\n\n### Year {year}\n")
+            solutions_path = f"./{file}/solutions"
+            # Find all solutions and sort them
+            solution_dirs = sorted([(path, os.path.isfile(f"{solutions_path}/{path}/output")) for path in os.listdir(solutions_path) if re.match("^\d{2}$", path)])
+
+            # For every day there is a solution for
+            for day, has_output in solution_dirs:
+                # link to the directory of the day
+                day_dir = f"{solutions_path}/{day}"
+                # Create entry for that day in format:
+                # * [Day 01](./AoC2020/solutions/01) ([solution](./AoC2020/solutions/01/output))
+                readme_updated.write(f"\n* [Day {day}]({day_dir}) ([solution]({day_dir}/output))")
+
+
+def generate_day(day, year=YEAR, download_input=True):
     filled = str(day).zfill(2)
-    path = "solutions/" + filled
-    print(f"Generating directory for day {filled}!")
+    year_path = f"AoC{year}"
+    solution_path = f"{year_path}/solutions"
+    path = f"{solution_path}/{filled}"
 
-    if os.path.isdir(path):
-        raise ValueError("File structure already exists")
-    else:
-        # Create directory
-        print("Creating directory")
+    # Create directory for year
+    if not os.path.isdir(f"AoC{YEAR}"):
+        print(f"Creating directory for year {year}")
+        os.mkdir(year_path)
+    # Create directory for solutions
+    if not os.path.isdir(f"AoC{YEAR}/solutions"):
+        print(f"Creating solutions directory for year {year}")
+        os.mkdir(solution_path)
+    # Create directory for day
+    if not os.path.isdir(path):
+        print(f"Creating solutions directory for day {day}/{year}")
         os.mkdir(path)
-        # Get input if enabled
-        if download_input:
-            print("Downloading input")
-            get_input(day)
 
+    # Get input if enabled
+    if download_input:
+        print("Downloading input")
+        get_input(day, year, path + "/input")
+
+    # Create default output file
+    if not os.path.isfile(path + "/output"):
+        print("Creating output file")
+        set_output("", "", day, year, path + "/output")
+    # Create default Python file
+    if not os.path.isfile(path + "/solution.py"):
         # Create python file
         print("Creating solution.py")
         py_file = open(path + "/solution.py", 'w')
@@ -79,7 +178,8 @@ print(f"Second: {{second}}")
 """
         )
         py_file.close()
-
+    # Create default C++ file
+    if not os.path.isfile(path + "/solution.h"):
         # Create c++ file
         print("Creating solution.h")
         cpp_file = open(path + "/solution.h", 'w')
@@ -131,7 +231,8 @@ int main() {{
 """
         )
         cpp_main.close()
-
+    # Create default Julia file
+    if not os.path.isfile(path + "/solution.jl"):
         print("Creating solution.jl")
         jl_file = open(path + "/solution.jl", 'w')
         jl_file.write(
@@ -174,4 +275,5 @@ if __name__ == "__main__":
         import datetime
         day = datetime.datetime.today().day
 
-    generate_day(day, True)
+    generate_day(day, YEAR, True)
+    update_readme()
