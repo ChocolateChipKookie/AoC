@@ -17,11 +17,7 @@ def isValid1(password):
     return all([(param in password) for param in parameters])
 
 def isValid2(password):
-    parameters = [ "byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
-    if not all([(param in password) for param in parameters]):
-        return False
-
-    def tryValid(password):
+    try:
         if not (1920 <= int(password["byr"]) <= 2002):
             return False
         if not (2010 <= int(password["iyr"]) <= 2020):
@@ -37,9 +33,7 @@ def isValid2(password):
         else:
             return False
 
-        if not (password["hcl"][0] == '#' and
-                len(password["hcl"]) == 7 and
-                all(c in string.hexdigits for c in password["hcl"][1:])):
+        if not (password["hcl"][0] == '#' and all(c in string.hexdigits for c in password["hcl"][1:7])):
             return False
 
         if password["ecl"] not in ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']:
@@ -49,9 +43,6 @@ def isValid2(password):
             return False
 
         return True
-
-    try:
-        return tryValid(password)
     except:
         return False
 
