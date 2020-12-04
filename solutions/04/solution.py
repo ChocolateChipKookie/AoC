@@ -18,12 +18,16 @@ def isValid1(password):
 
 def isValid2(password):
     try:
+        # Birth year
         if not (1920 <= int(password["byr"]) <= 2002):
             return False
+        # Issue year
         if not (2010 <= int(password["iyr"]) <= 2020):
             return False
+        # Expiry year
         if not (2020 <= int(password["eyr"]) <= 2030):
             return False
+        # Height ends in inches or cm and values are good
         if password["hgt"][-2:] == "in":
             if not (59 <= int(password["hgt"][:-2]) <= 76):
                 return False
@@ -32,16 +36,16 @@ def isValid2(password):
                 return False
         else:
             return False
-
+        # Hair colour
         if not (password["hcl"][0] == '#' and all(c in string.hexdigits for c in password["hcl"][1:7])):
             return False
-
+        # Eye colour
         if password["ecl"] not in ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']:
             return False
-
+        # Personal identification number
         if not (password["pid"].isdecimal() and len(password["pid"]) == 9):
             return False
-
+        # Finally true
         return True
     except:
         return False
