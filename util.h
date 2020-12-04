@@ -45,7 +45,7 @@ void time_solution(const std::function<void(void)>& solution){
     auto begin = std::chrono::high_resolution_clock::now();
     solution();
     auto end = std::chrono::high_resolution_clock::now();
-    std::cout << "\nTime elapsed: " << std::chrono::duration<double>(end - begin).count() << std::endl;
+    std::cout << "\nTime elapsed: " << std::chrono::duration<double, std::milli>(end - begin).count() << " ms" << std::endl;
 }
 
 #endif //AOC_UTIL_H

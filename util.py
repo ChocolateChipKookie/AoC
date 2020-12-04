@@ -1,8 +1,9 @@
 import os.path
 from aocd import get_data
 import re
+import datetime
 
-YEAR = 2020
+YEAR = datetime.datetime.today().year
 
 
 def get_input(day, year=YEAR):

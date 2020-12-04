@@ -6,6 +6,8 @@
 #define AOC_SOLUTION_H
 #include "../../util.h"
 #include <iostream>
+#include <set>
+#include <algorithm>
 
 void taks_01(const std::vector<size_t>& data){
     for (auto i1 : data){
