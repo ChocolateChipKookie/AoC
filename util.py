@@ -221,7 +221,7 @@ void solution(){{
         # Modify c++ main
         cpp_main = open("main.cpp", 'w')
         cpp_main.write(
-            f"""#include "solutions/{filled}/solution.h"
+            f"""#include "{solution_path}/{filled}/solution.h"
 
 int main() {{
     solution();
