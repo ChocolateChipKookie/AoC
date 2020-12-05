@@ -39,9 +39,11 @@ def solution():
 
 def golf():
     d = input_lines(DAY)
-    i = sorted([int(re.sub(r"[BR]", '1', re.sub(r"[FL]", '0', x)), 2) for x in d])
-    print(f"First:  {i[-1]}")
-    print(f"Second: {[x for x in range(i[0], i[-1]) if x not in i][0]}")
+    i = {int(x.translate("".maketrans("FBLR", "0101")), 2) for x in d}
+    print(f"First:  {max(i)}")
+    print(f"Second: {min(set(range(min(i), max(i)))-i)}")
 
 
 solution()
+golf()
+

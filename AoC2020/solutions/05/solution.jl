@@ -31,8 +31,9 @@ function solution()
     data = load()
     #println(data)
     data = calc_data(data)
-    println("First: $(task1(data))")
+    println("First:  $(task1(data))")
     println("Second: $(task2(data))")
 end
 
 solution()
+
