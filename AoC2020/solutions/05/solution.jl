@@ -24,7 +24,7 @@ end
 
 function task2(data)
     # Only value from [min, max] that is not present in the data
-    return [ x for x in data[1]:data[end] if !(x in data)][1]
+    return filter(x -> !(x in data), data[1]:data[end])[1]
 end
 
 function solution()
