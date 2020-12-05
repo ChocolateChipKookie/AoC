@@ -38,8 +38,8 @@ def solution():
 
 
 def golf():
-    d = input_lines(DAY)
-    i = {int(x.translate("".maketrans("FBLR", "0101")), 2) for x in d}
+    # Instead of input_lines(DAY) you could do open('input'), but my working directory is set to the root of the project
+    i = {int(x.translate("".maketrans("FBLR", "0101")), 2) for x in input_lines(DAY)}
     print(f"First:  {max(i)}")
     print(f"Second: {min(set(range(min(i), max(i)))-i)}")
 
