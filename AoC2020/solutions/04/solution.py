@@ -48,6 +48,7 @@ def isValid2(password):
         # Finally true
         return True
     except:
+        # If it throws any error, it is not as parsable as it should be
         return False
 
 first = sum(1 for x in data if isValid1(x))
