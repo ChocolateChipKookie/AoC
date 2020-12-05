@@ -1,5 +1,6 @@
 #Advent of Code 2020 day 5
 from util import *
+import re
 DAY = 5
 
 def get_data():
@@ -9,10 +10,8 @@ data = get_data()
 
 def get_seat_long(pid):
     # Turn pid to binary
-    pid = pid.replace("F", "0")
-    pid = pid.replace("B", "1")
-    pid = pid.replace("L", "0")
-    pid = pid.replace("R", "1")
+    pid = re.sub(r"[FL]", '0', pid)
+    pid = re.sub(r"[BR]", '1', pid)
 
     # Calculate row
     row = int(pid[0:7], 2)
@@ -24,7 +23,7 @@ def get_seat_long(pid):
 
 def get_seat(pid):
     # Pid is just a binary representation of the seat location
-    return int(pid.replace('F', '0').replace('B', '1').replace('L', '0').replace('R', '1'), 2)
+    return int(re.sub(r"[BR]", '1', re.sub(r"[FL]", '0', pid)), 2)
 
 ids = sorted([get_seat(x) for x in data])
 first = ids[-1]
