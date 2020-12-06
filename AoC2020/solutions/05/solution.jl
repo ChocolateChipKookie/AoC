@@ -5,8 +5,7 @@ function load(file_path=input_path)
     # Read data from file
     data = read((@__DIR__) * "/input", String)
     # Split into lines
-    lines = split(strip(data), "\n")
-    return lines
+    return split(strip(data), '\n')
 end
 
 function calc_data(data)
@@ -36,4 +35,3 @@ function solution()
 end
 
 solution()
-
