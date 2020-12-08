@@ -191,7 +191,7 @@ print(f"Second: {{second}}")
 #include <iostream>
 #include <algorithm>
 
-std::string sourceDirectory = "../solutions/{filled}";
+std::string sourceDirectory = "../AoC{year}/solutions/{filled}";
 
 void taks_01(){{
     auto data = loadTokens<std::string>(sourceDirectory + "/input");

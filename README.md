@@ -22,3 +22,4 @@ I am usually not that sporty, but there is nothing like golfing in the cold.
 * [Day 05](./AoC2020/solutions/05) ([solution](./AoC2020/solutions/05/output))
 * [Day 06](./AoC2020/solutions/06) ([solution](./AoC2020/solutions/06/output))
 * [Day 07](./AoC2020/solutions/07) ([solution](./AoC2020/solutions/07/output))
+* [Day 08](./AoC2020/solutions/08) ([solution](./AoC2020/solutions/08/output))
