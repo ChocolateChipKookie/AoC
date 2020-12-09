@@ -1,10 +1,10 @@
+from util import *
 import itertools
-import numpy
+import math
+DAY = 1
 
-print(numpy.prod(next(filter(lambda x: sum(x) == 2020, itertools.product(*([[x for x in map(int, open(
-    "input").read().split())]] * 2))))))
-print(numpy.prod(next(filter(lambda x: sum(x) == 2020, itertools.product(*([[x for x in map(int, open(
-    "input").read().split())]] * 3))))))
+print(math.prod(next(filter(lambda x: sum(x) == 2020, itertools.product(*([[x for x in map(int, input_tokens(DAY))]] * 2))))))
+print(math.prod(next(filter(lambda x: sum(x) == 2020, itertools.product(*([[x for x in map(int, input_tokens(DAY))]] * 3))))))
 
 """
 print(                                                                      # 9. Print the solution

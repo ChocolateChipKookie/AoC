@@ -23,67 +23,56 @@ std::vector<T_token> loadTokens(const std::string& filepath){
     return inputs;
 }
 
-std::vector<std::string> loadLines(const std::string& filepath){
+std::vector<std::string> loadLines(const std::string& filepath, bool include_empty=false){
     std::ifstream ifs(filepath);
     std::string line;
     std::vector<std::string> inputs;
     while (std::getline(ifs, line)){
-        inputs.push_back(line);
+        if (include_empty || !line.empty()){
+            inputs.push_back(line);
+        }
     }
     return inputs;
 }
 
 class interpreter{
 public:
-    enum class op{NOP, ACC, JMP};
-
     struct instruction{
 
-        interpreter::op operation{};
+        std::string operation{};
         std::vector<long long int> arguments{};
         explicit instruction(const std::string& ins){
             size_t pos = ins.find(' ');
-            std::string op_str = ins.substr(0, pos);
-
-            if (op_str == "nop"){
-                operation = interpreter::op::NOP;
-            } else if (op_str == "acc") {
-                operation = interpreter::op::ACC;
-            } else if (op_str == "jmp"){
-                operation = interpreter::op::JMP;
-            } else {
-                throw std::runtime_error("Operation not parsable!");
-            }
+            operation = ins.substr(0, pos);
 
             std::stringstream  ss(ins.substr(pos+1));
             std::istream_iterator<long long> begin(ss), end;
             std::copy(begin, end, std::back_inserter(arguments));
         }
 
-        explicit instruction(interpreter::op type, std::vector<long long> arguments)
-                :   operation(type),
+        explicit instruction(std::string type, std::vector<long long> arguments)
+                :   operation(std::move(type)),
                     arguments(std::move(arguments))
         {
         }
 
     };
 
-    long long int pc{0};
-    long long int accumulator{0};
-    std::vector<instruction> instructions;
-    bool terminated{false};
+    explicit interpreter(std::vector<instruction> instructions, long long accumulator = 0, long long pc = 0)
+            :   instructions(std::move(instructions)),
+                accumulator(accumulator),
+                pc(pc)
+    {
+        setup();
+    }
 
     explicit interpreter(const std::string& filepath, long long accumulator = 0, long long pc = 0)
         :   instructions(loadInstructions(filepath)),
             accumulator(accumulator),
             pc(pc)
-    {}
-
-    explicit interpreter(std::vector<instruction> instructions, long long accumulator = 0, long long pc = 0)
-            :   instructions(std::move(instructions)),
-                accumulator(accumulator),
-                pc(pc)
-    {}
+    {
+        setup();
+    }
 
     static std::vector<instruction> loadInstructions(const std::string& filepath){
         std::vector<std::string> lines = loadLines(filepath);
@@ -96,29 +85,37 @@ public:
         return instructions;
     }
 
+    void setup(){
+        // NOP
+        functions["nop"] = [this](instruction& ins){
+            ++pc;
+        };
+        // JMP
+        functions["jmp"] = [this](instruction& ins){
+            pc += ins.arguments[0];
+        };
+        functions["acc"] = [this](instruction& ins){
+            accumulator += ins.arguments[0];
+            pc++;
+        };
+    }
+
     int run_instruction(){
         if (terminated) return -1;
-
         instruction& ins = instructions[pc];
-        switch (ins.operation) {
-            case interpreter::op::NOP:
-                pc++;
-                break;
-            case interpreter::op::ACC:
-                accumulator += ins.arguments[0];
-                pc++;
-                break;
-            case interpreter::op::JMP:
-                pc += ins.arguments[0];
-                break;
-            default:
-                throw std::runtime_error("Operation not implemented!");
-        }
+        functions[ins.operation](ins);
         if (pc >= instructions.size()){
             terminated = true;
             return 1;
         }
     }
+
+    long long int pc{0};
+    long long int accumulator{0};
+    std::vector<instruction> instructions;
+    bool terminated{false};
+private:
+    std::unordered_map<std::string, std::function<void(instruction&)>> functions{};
 };
 
 void print_solution(size_t day, bool easy, size_t result, const std::string& result_message = ""){

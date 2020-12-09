@@ -187,7 +187,7 @@ print(f"Second: {{second}}")
             f"""//Advent of Code {YEAR} day {day}
 #ifndef AOC_{filled}_H
 #define AOC_{filled}_H
-#include "../../util.h"
+#include "../../../util.h"
 #include <iostream>
 #include <algorithm>
 

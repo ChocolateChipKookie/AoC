@@ -1,6 +1,6 @@
 #Advent of Code 2020 day 3
 from util import *
-import numpy
+import math
 DAY = 3
 
 def get_data():
@@ -22,7 +22,7 @@ def solution():
     first = find_trees(data, (1, 3))
 
     slopes = [(1, 1), (1, 3), (1, 5), (1, 7), (2, 1)]
-    second = numpy.prod([find_trees(data, slope) for slope in slopes])
+    second = math.prod([find_trees(data, slope) for slope in slopes])
 
     print(f"First:  {first}")
     print(f"Second: {second}")
@@ -32,7 +32,7 @@ def golf():
     slopes = [(1, 1), (1, 3), (1, 5), (1, 7), (2, 1)]
     sol = list(sum(1 for y in range(len(d)) if y * s[0] < len(d) and d[y*s[0]][y*s[1]%len(d[0])]=='#') for s in slopes)
     print(f"First:  {sol[1]}")
-    print(f"Second: {numpy.prod(sol)}")
+    print(f"Second: {math.prod(sol)}")
 
     """
         sol = 

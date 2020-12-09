@@ -29,21 +29,17 @@ void taks_02(){
     std::vector<size_t> jumps;
     std::vector<size_t> nops;
     for (size_t i = 0; i < instructions.size(); ++i){
-        switch (instructions[i].operation){
-            case interpreter::op::JMP:
-                jumps.push_back(i);
-                break;
-            case interpreter::op::NOP:
-                nops.push_back(i);
-                break;
-            default:
-                break;
+        if (instructions[i].operation == "jmp"){
+            jumps.push_back(i);
+        }
+        else if (instructions[i].operation == "nop"){
+            nops.push_back(i);
         }
     }
 
     for (size_t jump : jumps){
         interpreter computer(instructions);
-        computer.instructions[jump].operation = interpreter::op::NOP;
+        computer.instructions[jump].operation = "nop";
 
         std::set<long long int> visited_instructions{computer.pc};
         while (true){
@@ -62,7 +58,7 @@ void taks_02(){
 
     for (size_t nop : nops){
         interpreter computer(instructions);
-        computer.instructions[nop].operation = interpreter::op::JMP;
+        computer.instructions[nop].operation = "jmp";
 
         std::set<long long int> visited_instructions{computer.pc};
         while (true){
