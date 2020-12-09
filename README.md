@@ -7,7 +7,9 @@ I am usually not that sporty, but there is nothing like golfing in the cold.
 In the solution file of a day, you can find the solutions in one or more languages, my input file and my output file.
 
 ## ToDo
- Migrate 2019 and 2018<!SOLUTIONS>
+ Migrate 2019 and 2018
+
+<!SOLUTIONS>
 <!-- Do not remove this lines, and write nothing after the <!SOLUTIONS> tag -->
 <!--       They are used as marker for the generate_readme() function       -->
 
