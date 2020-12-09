@@ -123,8 +123,7 @@ def update_readme():
                 # link to the directory of the day
                 day_dir = f"{solutions_path}/{day}"
                 # Create entry for that day in format:
-                # * [Day 01](./AoC2020/solutions/01) ([solution](./AoC2020/solutions/01/output))
-                readme_updated.write(f"\n* [Day {day}]({day_dir}) ([solution]({day_dir}/output))")
+                readme_updated.write(f"\n* [Day {day}](https://adventofcode.com/{year}/day/{int(day)}) ([solution]({day_dir}))")
 
 
 def generate_day(day, year=YEAR, download_input=True):
@@ -275,5 +274,5 @@ if __name__ == "__main__":
         import datetime
         day = datetime.datetime.today().day
 
-    generate_day(day, YEAR, True)
+#    generate_day(day, YEAR, True)
     update_readme()
