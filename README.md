@@ -27,3 +27,6 @@ In the solution file of a day, you can find the solutions in one or more languag
 * [Day 08](https://adventofcode.com/2020/day/8) ([solution](./AoC2020/solutions/08))
 * [Day 09](https://adventofcode.com/2020/day/9) ([solution](./AoC2020/solutions/09))
 * [Day 10](https://adventofcode.com/2020/day/10) ([solution](./AoC2020/solutions/10))
+* [Day 11](https://adventofcode.com/2020/day/11) ([solution](./AoC2020/solutions/11))
+* [Day 12](https://adventofcode.com/2020/day/12) ([solution](./AoC2020/solutions/12))
+* [Day 13](https://adventofcode.com/2020/day/13) ([solution](./AoC2020/solutions/13))
