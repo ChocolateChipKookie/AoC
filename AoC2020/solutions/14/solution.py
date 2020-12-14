@@ -81,6 +81,5 @@ def second():
         total += res[key]
     return total
 
-
 print(f"First:  {first()}")
 print(f"Second: {second()}")
