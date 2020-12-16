@@ -1,4 +1,4 @@
-#include "AoC2020/solutions/15/solution.h"
+#include "AoC2020/solutions/16/solution.h"
 
 int main() {
     solution();
