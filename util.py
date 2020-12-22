@@ -270,7 +270,7 @@ solution()
 
 if __name__ == "__main__":
     day = None  # Override here
-    if day is None:
+    if not day:
         import datetime
         day = datetime.datetime.today().day
 
