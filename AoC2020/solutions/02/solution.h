@@ -10,7 +10,7 @@
 
 std::string sourceDirectory = "../solutions/02";
 
-void taks_01(){
+void task_01(){
     auto data = loadTokens<std::string>(sourceDirectory + "/input");
     size_t res{0};
     for (int i = 0; i < data.size(); i += 3) {
@@ -32,7 +32,7 @@ void taks_01(){
     print_solution(2, true, res);
 }
 
-void taks_02(){
+void task_02(){
     auto data = loadTokens<std::string>(sourceDirectory + "/input");
     size_t res{0};
     for (int i = 0; i < data.size(); i += 3){

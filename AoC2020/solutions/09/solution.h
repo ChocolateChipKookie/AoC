@@ -8,7 +8,7 @@
 std::string sourceDirectory = "../AoC2020/solutions/09";
 size_t first = 0;
 
-void taks_01(){
+void task_01(){
     auto data = loadTokens<size_t>(sourceDirectory + "/input");
     unsigned range = 25;
     for (unsigned i = 0; i < data.size(); ++i){
@@ -32,7 +32,7 @@ void taks_01(){
 
 }
 
-void taks_02(){
+void task_02(){
     auto data = loadTokens<size_t>(sourceDirectory + "/input");
     for (auto i = data.begin(); i != data.end(); ++i){
         size_t sum = 0;

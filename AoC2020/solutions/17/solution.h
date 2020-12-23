@@ -33,7 +33,7 @@ void printState(std::map<std::tuple<int, int, int>, bool>& values){
     std::cout << std::endl;
 }
 
-void taks_01(){
+void task_01(){
     auto data = loadLines(sourceDirectory + "/input");
     std::map<std::tuple<int, int, int>, bool> values;
 
@@ -98,7 +98,7 @@ void taks_01(){
     print_solution(17, true, res);
 }
 
-void taks_02(){
+void task_02(){
     auto data = loadLines(sourceDirectory + "/input");
     std::map<std::tuple<int, int, int, int>, bool> values;
 

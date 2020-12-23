@@ -192,14 +192,14 @@ print(f"Second: {{second}}")
 
 std::string sourceDirectory = "../AoC{year}/solutions/{filled}";
 
-void taks_01(){{
+void task_01(){{
     auto data = loadTokens<std::string>(sourceDirectory + "/input");
     size_t res{{0}};
 
     print_solution({day}, true, res);
 }}
 
-void taks_02(){{
+void task_02(){{
     auto data = loadTokens<std::string>(sourceDirectory + "/input");
     size_t res{{0}};
 
@@ -207,8 +207,8 @@ void taks_02(){{
 }}
 
 void solution(){{
-    taks_01();
-    taks_02();
+    task_01();
+    task_02();
 }}
 
 #endif //AOC_{filled}_H

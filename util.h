@@ -118,7 +118,8 @@ private:
     std::unordered_map<std::string, std::function<void(instruction&)>> functions{};
 };
 
-void print_solution(size_t day, bool easy, size_t result, const std::string& result_message = ""){
+template<typename T_res>
+void print_solution(size_t day, bool easy, const T_res& result, const std::string& result_message = ""){
     std::cout << "Day: " << day << "\nDifficulty: " << (easy ? "Easy" : "Hard") << "\nResult: ";
     if (!result_message.empty()){
         std::cout << result_message;

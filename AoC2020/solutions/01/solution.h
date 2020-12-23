@@ -9,7 +9,7 @@
 #include <set>
 #include <algorithm>
 
-void taks_01(const std::vector<size_t>& data){
+void task_01(const std::vector<size_t>& data){
     for (auto i1 : data){
         for (auto i2 : data){
             if( i1 + i2 == 2020){
@@ -20,7 +20,7 @@ void taks_01(const std::vector<size_t>& data){
     }
 }
 
-void taks_02(const std::vector<size_t>& data){
+void task_02(const std::vector<size_t>& data){
     for (auto i1 : data){
         for (auto i2 : data){
             for (auto i3 : data){

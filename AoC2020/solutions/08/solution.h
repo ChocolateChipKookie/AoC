@@ -8,7 +8,7 @@
 
 std::string sourceDirectory = "../AoC2020/solutions/08";
 
-void taks_01(){
+void task_01(){
     interpreter computer(sourceDirectory + "/input");
     std::set<long long int> visited_instructions{computer.pc};
     long long int res;
@@ -24,7 +24,7 @@ void taks_01(){
     print_solution(8, true, res);
 }
 
-void taks_02(){
+void task_02(){
     std::vector<interpreter::instruction> instructions = interpreter::loadInstructions(sourceDirectory + "/input");
     std::vector<size_t> jumps;
     std::vector<size_t> nops;
