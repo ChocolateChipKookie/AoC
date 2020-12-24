@@ -72,7 +72,7 @@ for iter in range(100):
 
     tiles = {pos:True for pos in new_tiles if new_tiles[pos]}
 
-second = sum(1 for tile in tiles if tiles[tile])
+second = len(tiles)
 
 print(f"First:  {first}")
 print(f"Second: {second}")
