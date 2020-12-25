@@ -4,7 +4,7 @@
 
 #ifndef AOC_01_H
 #define AOC_01_H
-#include "../../../util.h"
+#include "../../util.h"
 #include <iostream>
 #include <algorithm>
 

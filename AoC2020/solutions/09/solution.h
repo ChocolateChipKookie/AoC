@@ -1,7 +1,7 @@
 //Advent of Code 2020 day 9
 #ifndef AOC_09_H
 #define AOC_09_H
-#include "../../../util.h"
+#include "../../util.h"
 #include <iostream>
 #include <algorithm>
 

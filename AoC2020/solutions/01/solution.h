@@ -4,7 +4,7 @@
 
 #ifndef AOC_SOLUTION_H
 #define AOC_SOLUTION_H
-#include "../../../util.h"
+#include "../../util.h"
 #include <iostream>
 #include <set>
 #include <algorithm>

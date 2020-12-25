@@ -1,7 +1,7 @@
 //Advent of Code 2020 day 17
 #ifndef AOC_17_H
 #define AOC_17_H
-#include "../../../util.h"
+#include "../../util.h"
 #include <iostream>
 #include <algorithm>
 #include <map>

@@ -1,7 +1,7 @@
 //Advent of Code 2020 day 8
 #ifndef AOC_08_H
 #define AOC_08_H
-#include "../../../util.h"
+#include "../../util.h"
 #include <iostream>
 #include <algorithm>
 #include <set>

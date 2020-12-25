@@ -41,20 +41,20 @@ def get_lines(string):
     return [x.strip() for x in string.strip().split('\n')]
 
 
-def input_lines(day):
-    return get_lines(get_input(day))
+def input_lines(day, year=YEAR):
+    return get_lines(get_input(day, year))
 
 
 def get_integers(string):
     return list(map(int, re.findall(r'\d+', string)))
 
 
-def input_integers(day):
-    return get_integers(get_input(day))
+def input_integers(day, year=YEAR):
+    return get_integers(get_input(day, year))
 
 
-def input_tokens(day, delim=None):
-    return [x.strip() for x in get_input(day).strip().split(delim)]
+def input_tokens(day, year=YEAR, delim=None):
+    return [x.strip() for x in get_input(day, year).strip().split(delim)]
 
 
 def update_readme():
@@ -163,9 +163,10 @@ def generate_day(day, year=YEAR, download_input=True):
             f"""#Advent of Code {YEAR} day {day}
 from util import *
 DAY = {day}
+YEAR = {year}
 
 def get_data():
-    return input_lines(DAY)
+    return input_lines(DAY, YEAR)
 
 data = get_data()
 
@@ -186,7 +187,7 @@ print(f"Second: {{second}}")
             f"""//Advent of Code {YEAR} day {day}
 #ifndef AOC_{filled}_H
 #define AOC_{filled}_H
-#include "../../../util.h"
+#include "../../util.h"
 #include <iostream>
 #include <algorithm>
 
@@ -270,6 +271,7 @@ solution()
 
 if __name__ == "__main__":
     day = None  # Override here
+    YEAR = 2019
     if not day:
         import datetime
         day = datetime.datetime.today().day
