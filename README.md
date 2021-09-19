@@ -15,6 +15,17 @@ In the solution file of a day, you can find the solutions in one or more languag
 
 ## Solutions
 
+### Year 2018
+
+* [Day 01](https://adventofcode.com/2018/day/1) ([solution](./AoC2018/solutions/01))
+* [Day 02](https://adventofcode.com/2018/day/2) ([solution](./AoC2018/solutions/02))
+* [Day 03](https://adventofcode.com/2018/day/3) ([solution](./AoC2018/solutions/03))
+* [Day 04](https://adventofcode.com/2018/day/4) ([solution](./AoC2018/solutions/04))
+* [Day 05](https://adventofcode.com/2018/day/5) ([solution](./AoC2018/solutions/05))
+* [Day 06](https://adventofcode.com/2018/day/6) ([solution](./AoC2018/solutions/06))
+* [Day 07](https://adventofcode.com/2018/day/7) ([solution](./AoC2018/solutions/07))
+* [Day 08](https://adventofcode.com/2018/day/8) ([solution](./AoC2018/solutions/08))
+
 ### Year 2019
 
 * [Day 01](https://adventofcode.com/2019/day/1) ([solution](./AoC2019/solutions/01))

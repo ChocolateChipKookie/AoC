@@ -1,0 +1,3 @@
+﻿  Source.cpp
+c:\users\adi\source\repos\aoc_01\aoc_12\source.cpp(45): warning C4018: '<': signed/unsigned mismatch
+  AoC_12.vcxproj -> C:\Users\Adi\source\repos\AoC_01\Debug\AoC_12.exe

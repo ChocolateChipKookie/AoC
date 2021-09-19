@@ -1,9 +1,11 @@
 #Advent of Code 2020 day 21
 from util import *
 DAY = 21
+YEAR = 2020
+
 
 def get_data():
-    lines = input_lines(DAY)
+    lines = input_lines(DAY, YEAR)
     res = [line.split('(contains ') for line in lines]
     res = [(x[0].split(), x[1][:-1].split(', ')) for x in res]
     return res

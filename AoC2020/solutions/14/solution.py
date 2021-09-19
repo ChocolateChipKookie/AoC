@@ -1,9 +1,11 @@
 #Advent of Code 2020 day 14
 from util import *
 DAY = 14
+YEAR = 2020
+
 
 def get_data():
-    return input_lines(DAY)
+    return input_lines(DAY, YEAR)
 
 
 def first():

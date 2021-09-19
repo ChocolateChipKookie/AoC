@@ -2,10 +2,11 @@
 from util import *
 import re
 DAY = 5
+YEAR = 2020
 
 
 def get_data():
-    return input_lines(DAY)
+    return input_lines(DAY, YEAR)
 
 
 def get_seat_long(pid):

@@ -1,10 +1,11 @@
 #Advent of Code 2020 day 10
 from util import *
 DAY = 10
+YEAR = 2020
 
 
 def get_data():
-    return input_integers(DAY)
+    return input_integers(DAY, YEAR)
 
 
 # Sort data in beforehand

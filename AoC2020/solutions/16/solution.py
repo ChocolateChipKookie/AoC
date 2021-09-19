@@ -2,9 +2,11 @@
 from util import *
 import math
 DAY = 16
+YEAR = 2020
+
 
 def get_data():
-    return get_input(DAY)
+    return get_input(DAY, YEAR)
 
 data = get_data()
 tokens = data.split('\n\n')

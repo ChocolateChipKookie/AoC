@@ -2,6 +2,8 @@
 from util import *
 import math
 DAY = 20
+YEAR = 2020
+
 
 def get_data():
     tiles = get_input(DAY, YEAR).split('\n\n')

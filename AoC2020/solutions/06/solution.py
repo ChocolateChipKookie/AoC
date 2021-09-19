@@ -1,10 +1,11 @@
 #Advent of Code 2020 day 6
 from util import *
 DAY = 6
+YEAR = 2020
 
 
 def get_data():
-    return get_input(DAY).strip().split('\n\n')
+    return get_input(DAY, YEAR).strip().split('\n\n')
 
 
 def solution():

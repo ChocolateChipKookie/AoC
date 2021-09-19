@@ -2,9 +2,10 @@
 from util import *
 import math
 DAY = 3
+YEAR = 2020
 
 def get_data():
-    return input_lines(DAY)
+    return input_lines(DAY, YEAR)
 
 def solution():
     data = get_data()

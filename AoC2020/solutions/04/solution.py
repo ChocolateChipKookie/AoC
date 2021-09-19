@@ -2,9 +2,11 @@
 from util import *
 import string
 DAY = 4
+YEAR = 2020
+
 
 def get_data():
-    data = get_input(DAY).strip()
+    data = get_input(DAY, YEAR).strip()
     data = [x.strip().split() for x in data.split('\n\n')]
     data = [[x.strip().split(":") for x in y] for y in data]
     data = [{x[0]:x[1] for x in y} for y in data]

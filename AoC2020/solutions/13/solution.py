@@ -1,10 +1,13 @@
+
 #Advent of Code 2020 day 13
 from util import *
 import math
 DAY = 13
+YEAR = 2020
+
 
 def first():
-    data = input_integers(DAY)
+    data = input_integers(DAY, YEAR)
     timepoint, data = data[0], data[1:]
 
     min_bus = min(data)

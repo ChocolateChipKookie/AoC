@@ -1,12 +1,13 @@
 #Advent of Code 2020 day 22
 from util import *
-DAY = 22
 import copy
+DAY = 22
+YEAR = 2020
 
 def get_data():
     cards = [[], []]
     i = 0
-    for line in input_lines(DAY):
+    for line in input_lines(DAY, YEAR):
         if line == "":
             i += 1
         if line.isnumeric():

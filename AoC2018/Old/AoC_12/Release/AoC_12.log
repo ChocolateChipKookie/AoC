@@ -1,0 +1,6 @@
+﻿  Source.cpp
+c:\users\adi\source\repos\aoc_01\aoc_12\source.cpp(45): warning C4018: '<': signed/unsigned mismatch
+  Generating code
+  All 389 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  AoC_12.vcxproj -> C:\Users\Adi\source\repos\AoC_01\Release\AoC_12.exe

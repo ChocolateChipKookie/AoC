@@ -3,6 +3,8 @@ from aocd import get_data
 import re
 import datetime
 
+session = "53616c7465645f5f2e179d08850705c2562c27928bd047d5cc300bc8abfe59ae929ff14fcb2763cb95479df41002a0b5"
+os.environ["AOC_SESSION"] = session
 YEAR = datetime.datetime.today().year
 
 
@@ -10,17 +12,14 @@ def get_input(day, year=YEAR, path=None):
     if path is None:
         path = f"AoC{year}/solutions/{str(day).zfill(2)}/input"
 
-    if year == YEAR:
-        if os.path.isfile(path):
-            return open(path, 'r').read()
-        else:
-            puzzle_input = get_data(day=day, year=year)
-            file = open(path, 'w')
-            file.write(puzzle_input)
-            file.close()
-            return puzzle_input
+    if os.path.isfile(path):
+        return open(path, 'r').read()
     else:
-        return get_data(day=day, year=year)
+        puzzle_input = get_data(day=day, year=year)
+        file = open(path, 'w')
+        file.write(puzzle_input)
+        file.close()
+        return puzzle_input
 
 
 def set_output(first, second, day, year=YEAR, path=None):
@@ -133,8 +132,57 @@ def generate_day(day, year=YEAR, download_input=True):
     path = f"{solution_path}/{filled}"
 
     # Create directory for year
-    if not os.path.isdir(f"AoC{YEAR}"):
+    if not os.path.isdir(year_path):
         print(f"Creating directory for year {year}")
+        os.mkdir(year_path)
+        print(f"Creating c++ util for year {year}")
+        with open(f"{year_path}/util.h", 'w') as f:
+            f.write("""
+#ifndef AOC_UTIL_H
+#define AOC_UTIL_H
+
+#include <vector>
+#include <string>
+#include <sstream>
+#include <iterator>
+#include <fstream>
+#include <tuple>
+#include <functional>
+#include <chrono>
+#include <iostream>
+
+template<typename T_token>
+std::vector<T_token> loadTokens(const std::string& filepath){
+    std::ifstream ifs(filepath);
+    std::istream_iterator<T_token> begin(ifs), end;
+    std::vector<T_token> inputs{begin, end };
+    ifs.close();
+    return inputs;
+}
+
+std::vector<std::string> loadLines(const std::string& filepath, bool include_empty=false){
+    std::ifstream ifs(filepath);
+    std::string line;
+    std::vector<std::string> inputs;
+    while (std::getline(ifs, line)){
+        if (include_empty || !line.empty()){
+            inputs.push_back(line);
+        }
+    }
+    return inputs;
+}
+
+template<typename T_res>
+void print_solution(size_t day, bool easy, const T_res& result, const std::string& result_message = ""){
+    std::cout << "Day: " << day << "\nDifficulty: " << (easy ? "Easy" : "Hard") << "\nResult: ";
+    if (!result_message.empty()){
+        std::cout << result_message;
+    }
+    std::cout << result << std::endl;
+}
+
+#endif //AOC_UTIL_H
+""")
         os.mkdir(year_path)
     # Create directory for solutions
     if not os.path.isdir(f"AoC{YEAR}/solutions"):
@@ -178,6 +226,19 @@ print(f"Second: {{second}}")
 """
         )
         py_file.close()
+        print("Modifying main.py")
+        # Modify c++ main
+        py_main = open("main.py", 'w')
+        py_main.write(
+            f"""
+if __name__ == "__main__":
+    import sys
+    sys.path.insert(1, '{path}')
+    import solution
+"""
+        )
+        py_main.close()
+
     # Create default C++ file
     if not os.path.isfile(path + "/solution.h"):
         # Create c++ file
@@ -190,6 +251,7 @@ print(f"Second: {{second}}")
 #include "../../util.h"
 #include <iostream>
 #include <algorithm>
+#include <numeric>
 
 std::string sourceDirectory = "../AoC{year}/solutions/{filled}";
 
@@ -270,8 +332,8 @@ solution()
 
 
 if __name__ == "__main__":
-    day = None  # Override here
-    YEAR = 2019
+    day = 8  # Override here
+    YEAR = 2018
     if not day:
         import datetime
         day = datetime.datetime.today().day

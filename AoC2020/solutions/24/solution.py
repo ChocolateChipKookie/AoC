@@ -1,9 +1,10 @@
 #Advent of Code 2020 day 24
 from util import *
 DAY = 24
+YEAR = 2020
 
 def get_data():
-    lines = input_lines(DAY)
+    lines = input_lines(DAY, YEAR)
     def parse_line(line):
         tokens = []
         while len(line) != 0:

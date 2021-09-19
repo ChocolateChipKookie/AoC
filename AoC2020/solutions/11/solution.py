@@ -2,10 +2,13 @@
 from util import *
 import copy
 DAY = 11
+YEAR = 2020
+
 
 def get_data():
     d = {'.':-1, "L":0, "#":1}
-    return [[d[c] for c in s] for s in input_lines(DAY)]
+    return [[d[c] for c in s] for s in input_lines(DAY, YEAR)]
+
 
 def print_data(data):
     d = {-1:".", 0:"L", 1:"#"}

@@ -1,9 +1,10 @@
 #Advent of Code 2020 day 7
 from util import *
 DAY = 7
+YEAR = 2020
 
 def get_data():
-    data = input_lines(DAY)
+    data = input_lines(DAY, YEAR)
     data = [x.split(' contain ') for x in data]
     data = [(x[0][:-5].strip(), x[1].split(', ')) for x in data]
     data = {x[0]: [y.split() for y in x[1]] for x in data}
