@@ -332,7 +332,7 @@ solution()
 
 
 if __name__ == "__main__":
-    day = 8  # Override here
+    day = 14  # Override here
     YEAR = 2018
     if not day:
         import datetime
