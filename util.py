@@ -3,7 +3,7 @@ from aocd import get_data
 import re
 import datetime
 
-session = "53616c7465645f5f2e179d08850705c2562c27928bd047d5cc300bc8abfe59ae929ff14fcb2763cb95479df41002a0b5"
+session = "53616c7465645f5f1d2a3d36d9bb24510f6be3164c797a5eaaf30ebccf2e8463f4889507115313288d42a8ded042ef03"
 os.environ["AOC_SESSION"] = session
 YEAR = datetime.datetime.today().year
 
@@ -15,7 +15,7 @@ def get_input(day, year=YEAR, path=None):
     if os.path.isfile(path):
         return open(path, 'r').read()
     else:
-        puzzle_input = get_data(day=day, year=year)
+        puzzle_input = get_data(session=session, day=day, year=year)
         file = open(path, 'w')
         file.write(puzzle_input)
         file.close()
@@ -183,7 +183,6 @@ void print_solution(size_t day, bool easy, const T_res& result, const std::strin
 
 #endif //AOC_UTIL_H
 """)
-        os.mkdir(year_path)
     # Create directory for solutions
     if not os.path.isdir(f"AoC{YEAR}/solutions"):
         print(f"Creating solutions directory for year {year}")
@@ -332,8 +331,8 @@ solution()
 
 
 if __name__ == "__main__":
-    day = 14  # Override here
-    YEAR = 2018
+    day = None
+    YEAR = 2021
     if not day:
         import datetime
         day = datetime.datetime.today().day
