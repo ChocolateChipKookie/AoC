@@ -88,7 +88,6 @@ function solution()
     data = load()
     println("First: $(task1(data))")
     println("Second: $(task2(data))")
-    println("Second: $(task2(data))")
 end
 
 solution()
