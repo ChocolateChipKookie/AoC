@@ -89,4 +89,3 @@ In the solution file of a day, you can find the solutions in one or <!SOLUTIONS>
 * [Day 03](https://adventofcode.com/2021/day/3) ([solution](./AoC2021/solutions/03))
 * [Day 04](https://adventofcode.com/2021/day/4) ([solution](./AoC2021/solutions/04))
 * [Day 05](https://adventofcode.com/2021/day/5) ([solution](./AoC2021/solutions/05))
-* [Day 06](https://adventofcode.com/2021/day/6) ([solution](./AoC2021/solutions/06))/06))/06))/06))/06))
