@@ -2,10 +2,8 @@
 
 It is that time of year, it is getting cold outside, the first christmas trees are starting glitter, and many programmers around the world crack their knuckles solving the [Advent of Code](https://adventofcode.com/).
 This is the repository for my solutions. It is mostly solved in C++ / Julia / Python.
-I am usually not that sporty, but there is nothing like golfing in the cold.
 
-In the solution file of a day, you can find the solutions in one or more languages, my input file and my output file.
-<!SOLUTIONS>
+In the solution file of a day, you can find the solutions in one or <!SOLUTIONS>
 <!-- Do not remove this lines, and write nothing after the <!SOLUTIONS> tag -->
 <!--       They are used as marker for the generate_readme() function       -->
 
@@ -90,3 +88,5 @@ In the solution file of a day, you can find the solutions in one or more languag
 * [Day 02](https://adventofcode.com/2021/day/2) ([solution](./AoC2021/solutions/02))
 * [Day 03](https://adventofcode.com/2021/day/3) ([solution](./AoC2021/solutions/03))
 * [Day 04](https://adventofcode.com/2021/day/4) ([solution](./AoC2021/solutions/04))
+* [Day 05](https://adventofcode.com/2021/day/5) ([solution](./AoC2021/solutions/05))
+* [Day 06](https://adventofcode.com/2021/day/6) ([solution](./AoC2021/solutions/06))/06))/06))/06))/06))
