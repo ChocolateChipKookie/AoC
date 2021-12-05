@@ -2,14 +2,8 @@
 
 It is that time of year, it is getting cold outside, the first christmas trees are starting glitter, and many programmers around the world crack their knuckles solving the [Advent of Code](https://adventofcode.com/).
 This is the repository for my solutions. It is mostly solved in C++ / Julia / Python.
-I am usually not that sporty, but there is nothing like golfing in the cold.
 
-In the solution file of a day, you can find the solutions in one or more languages, my input file and my output file.
-
-## ToDo
- Migrate 2019 and 2018
-
-<!SOLUTIONS>
+In the solution file of a day, you can find the solutions in one or <!SOLUTIONS>
 <!-- Do not remove this lines, and write nothing after the <!SOLUTIONS> tag -->
 <!--       They are used as marker for the generate_readme() function       -->
 
@@ -87,3 +81,11 @@ In the solution file of a day, you can find the solutions in one or more languag
 * [Day 23](https://adventofcode.com/2020/day/23) ([solution](./AoC2020/solutions/23))
 * [Day 24](https://adventofcode.com/2020/day/24) ([solution](./AoC2020/solutions/24))
 * [Day 25](https://adventofcode.com/2020/day/25) ([solution](./AoC2020/solutions/25))
+
+### Year 2021
+
+* [Day 01](https://adventofcode.com/2021/day/1) ([solution](./AoC2021/solutions/01))
+* [Day 02](https://adventofcode.com/2021/day/2) ([solution](./AoC2021/solutions/02))
+* [Day 03](https://adventofcode.com/2021/day/3) ([solution](./AoC2021/solutions/03))
+* [Day 04](https://adventofcode.com/2021/day/4) ([solution](./AoC2021/solutions/04))
+* [Day 05](https://adventofcode.com/2021/day/5) ([solution](./AoC2021/solutions/05))

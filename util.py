@@ -3,7 +3,7 @@ from aocd import get_data
 import re
 import datetime
 
-session = "53616c7465645f5f2e179d08850705c2562c27928bd047d5cc300bc8abfe59ae929ff14fcb2763cb95479df41002a0b5"
+session = "53616c7465645f5f1d2a3d36d9bb24510f6be3164c797a5eaaf30ebccf2e8463f4889507115313288d42a8ded042ef03"
 os.environ["AOC_SESSION"] = session
 YEAR = datetime.datetime.today().year
 
@@ -15,7 +15,7 @@ def get_input(day, year=YEAR, path=None):
     if os.path.isfile(path):
         return open(path, 'r').read()
     else:
-        puzzle_input = get_data(day=day, year=year)
+        puzzle_input = get_data(session=session, day=day, year=year)
         file = open(path, 'w')
         file.write(puzzle_input)
         file.close()
@@ -136,56 +136,13 @@ def generate_day(day, year=YEAR, download_input=True):
         print(f"Creating directory for year {year}")
         os.mkdir(year_path)
         print(f"Creating c++ util for year {year}")
-        with open(f"{year_path}/util.h", 'w') as f:
-            f.write("""
-#ifndef AOC_UTIL_H
-#define AOC_UTIL_H
+        with open(f"{year_path}/util.h", 'w') as util_f:
+            with open("/templates/util.h", 'r') as template_f:
+                template = template_f.read()
+            util_f.write(template)
 
-#include <vector>
-#include <string>
-#include <sstream>
-#include <iterator>
-#include <fstream>
-#include <tuple>
-#include <functional>
-#include <chrono>
-#include <iostream>
-
-template<typename T_token>
-std::vector<T_token> loadTokens(const std::string& filepath){
-    std::ifstream ifs(filepath);
-    std::istream_iterator<T_token> begin(ifs), end;
-    std::vector<T_token> inputs{begin, end };
-    ifs.close();
-    return inputs;
-}
-
-std::vector<std::string> loadLines(const std::string& filepath, bool include_empty=false){
-    std::ifstream ifs(filepath);
-    std::string line;
-    std::vector<std::string> inputs;
-    while (std::getline(ifs, line)){
-        if (include_empty || !line.empty()){
-            inputs.push_back(line);
-        }
-    }
-    return inputs;
-}
-
-template<typename T_res>
-void print_solution(size_t day, bool easy, const T_res& result, const std::string& result_message = ""){
-    std::cout << "Day: " << day << "\nDifficulty: " << (easy ? "Easy" : "Hard") << "\nResult: ";
-    if (!result_message.empty()){
-        std::cout << result_message;
-    }
-    std::cout << result << std::endl;
-}
-
-#endif //AOC_UTIL_H
-""")
-        os.mkdir(year_path)
     # Create directory for solutions
-    if not os.path.isdir(f"AoC{YEAR}/solutions"):
+    if not os.path.isdir(f"AoC{year}/solutions"):
         print(f"Creating solutions directory for year {year}")
         os.mkdir(solution_path)
     # Create directory for day
@@ -206,137 +163,67 @@ void print_solution(size_t day, bool easy, const T_res& result, const std::strin
     if not os.path.isfile(path + "/solution.py"):
         # Create python file
         print("Creating solution.py")
-        py_file = open(path + "/solution.py", 'w')
-        py_file.write(
-            f"""#Advent of Code {YEAR} day {day}
-from util import *
-DAY = {day}
-YEAR = {year}
+        with open(path + "/solution.py", 'w') as py_file:
+            with open("./templates/solution.py", 'r') as template_f:
+                template = template_f.read()
+            py_file.write(template.format(year=year, day=day))
 
-def get_data():
-    return input_lines(DAY, YEAR)
-
-data = get_data()
-
-first = None
-second = None
-
-print(f"First:  {{first}}")
-print(f"Second: {{second}}")
-"""
-        )
-        py_file.close()
+        # Modify main.py
         print("Modifying main.py")
-        # Modify c++ main
-        py_main = open("main.py", 'w')
-        py_main.write(
-            f"""
-if __name__ == "__main__":
-    import sys
-    sys.path.insert(1, '{path}')
-    import solution
-"""
-        )
-        py_main.close()
-
+        with open("main.py", 'w') as py_main:
+            with open("./templates/main.py", 'r') as template_f:
+                template = template_f.read()
+            py_main.write(template.format(path=path))
+    
     # Create default C++ file
     if not os.path.isfile(path + "/solution.h"):
         # Create c++ file
         print("Creating solution.h")
-        cpp_file = open(path + "/solution.h", 'w')
-        cpp_file.write(
-            f"""//Advent of Code {YEAR} day {day}
-#ifndef AOC_{filled}_H
-#define AOC_{filled}_H
-#include "../../util.h"
-#include <iostream>
-#include <algorithm>
-#include <numeric>
+        with open(path + "/solution.h", 'w') as cpp_file:
+            with open("./templates/solution.h", 'r') as template_f:
+                template = template_f.read()
+            cpp_file.write(template.format(year=year, day=day, filled=filled))
 
-std::string sourceDirectory = "../AoC{year}/solutions/{filled}";
 
-void task_01(){{
-    auto data = loadTokens<std::string>(sourceDirectory + "/input");
-    size_t res{{0}};
-
-    print_solution({day}, true, res);
-}}
-
-void task_02(){{
-    auto data = loadTokens<std::string>(sourceDirectory + "/input");
-    size_t res{{0}};
-
-    print_solution({day}, false, res);
-}}
-
-void solution(){{
-    task_01();
-    task_02();
-}}
-
-#endif //AOC_{filled}_H
-"""
-        )
-        cpp_file.close()
-
-        print("Modifying main.cpp")
         # Modify c++ main
-        cpp_main = open("main.cpp", 'w')
-        cpp_main.write(
-            f"""#include "{solution_path}/{filled}/solution.h"
+        print("Modifying main.cpp")
+        with open("main.cpp", 'w') as cpp_main:
+            with open("./templates/main.cpp", 'r') as template_f:
+                template = template_f.read()
+            cpp_main.write(template.format(solution_path=solution_path, filled=filled))
 
-int main() {{
-    solution();
-    //time_solution(solution);
-    return 0;
-}}
-"""
-        )
-        cpp_main.close()
+    # Create default rust file
+    if not os.path.isfile(path + "/solution.rs"):
+        # Create rust file
+        print("Creating solution.rs")
+        with open(path + "/solution.rs", 'w') as rust_file:
+            with open("./templates/solution.rs", 'r') as template_f:
+                template = template_f.read()
+            rust_file.write(template.format(year=year, day=day, filled=filled))
+
+        # Modify rust main
+        print("Modifying main.rs")
+        with open("src/main.rs", 'w') as rust_main:
+            with open("./templates/main.rs", 'r') as template_f:
+                template = template_f.read()
+            rust_main.write(template.format(year=year,filled=filled))
+
     # Create default Julia file
     if not os.path.isfile(path + "/solution.jl"):
+        # Create julia file
         print("Creating solution.jl")
-        jl_file = open(path + "/solution.jl", 'w')
-        jl_file.write(
-            f"""#Advent of Code {YEAR} day {day}
-input_path = (@__DIR__) * "/input"
-
-function load(file_path=input_path)
-    # Read data from file
-    data = read((@__DIR__) * "/input", String)
-    # Split into lines
-    lines = split(strip(data), "\\n")
-    return lines
-end
-
-function task1(data)
-    return Nothing
-end
-    
-function task2(data)
-    return Nothing
-end
-
-
-function solution()
-    data = load()
-    #println(data)
-    println("First: $(task1(data))")
-    println("Second: $(task2(data))")
-end
-    
-solution()
-"""
-        )
-        jl_file.close()
+        with open(path + "/solution.jl", 'w') as jl_file:
+            with open("./templates/solution.jl", 'r') as template_f:
+                template = template_f.read()
+            jl_file.write(template.format(year=year, day=day))
 
 
 if __name__ == "__main__":
-    day = 14  # Override here
-    YEAR = 2018
+    day = None
+    YEAR = 2021
     if not day:
         import datetime
         day = datetime.datetime.today().day
 
-    generate_day(day, YEAR, True)
+    generate_day(day, YEAR, False)
     update_readme()
