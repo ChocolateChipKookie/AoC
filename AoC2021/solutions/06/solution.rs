@@ -45,5 +45,5 @@ pub fn solve() {
 
     let second: i64 = population.iter().sum();
     println!("First:  {}", first);
-    println!("Second:  {}", second);
+    println!("Second: {}", second);
 }
