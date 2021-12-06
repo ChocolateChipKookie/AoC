@@ -22,7 +22,6 @@ fn parse_input() -> Vec::<((i64, i64), (i64, i64))>{
         let entry = ((to_int(from[0]), to_int(from[1])), (to_int(to[0]), to_int(to[1])));
         inputs.push(entry);
     }
-
     return inputs;
 }
 

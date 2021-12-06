@@ -225,5 +225,5 @@ if __name__ == "__main__":
         import datetime
         day = datetime.datetime.today().day
 
-    generate_day(day, YEAR, False)
+    generate_day(day, YEAR, True)
     update_readme()
