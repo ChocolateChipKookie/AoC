@@ -1,4 +1,4 @@
 if __name__ == "__main__":
     import sys
-    sys.path.insert(1, 'AoC2021/solutions/06')
+    sys.path.insert(1, 'AoC2018/solutions/17')
     import solution

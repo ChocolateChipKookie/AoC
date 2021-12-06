@@ -25,6 +25,9 @@ In the solution file of a day, you can find the solutions <!SOLUTIONS>
 * [Day 12](https://adventofcode.com/2018/day/12) ([solution](./AoC2018/solutions/12))
 * [Day 13](https://adventofcode.com/2018/day/13) ([solution](./AoC2018/solutions/13))
 * [Day 14](https://adventofcode.com/2018/day/14) ([solution](./AoC2018/solutions/14))
+* [Day 15](https://adventofcode.com/2018/day/15) ([solution](./AoC2018/solutions/15))
+* [Day 16](https://adventofcode.com/2018/day/16) ([solution](./AoC2018/solutions/16))
+* [Day 17](https://adventofcode.com/2018/day/17) ([solution](./AoC2018/solutions/17))
 
 ### Year 2019
 
