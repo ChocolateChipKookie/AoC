@@ -28,6 +28,7 @@ In the solution file of a day, you can find<!SOLUTIONS>
 * [Day 15](https://adventofcode.com/2018/day/15) ([solution](./AoC2018/solutions/15))
 * [Day 16](https://adventofcode.com/2018/day/16) ([solution](./AoC2018/solutions/16))
 * [Day 17](https://adventofcode.com/2018/day/17) ([solution](./AoC2018/solutions/17))
+* [Day 18](https://adventofcode.com/2018/day/18) ([solution](./AoC2018/solutions/18))
 
 ### Year 2019
 
@@ -93,4 +94,5 @@ In the solution file of a day, you can find<!SOLUTIONS>
 * [Day 04](https://adventofcode.com/2021/day/4) ([solution](./AoC2021/solutions/04))
 * [Day 05](https://adventofcode.com/2021/day/5) ([solution](./AoC2021/solutions/05))
 * [Day 06](https://adventofcode.com/2021/day/6) ([solution](./AoC2021/solutions/06))
-* [Day 07](https://adventofcode.com/2021/day/7) ([solution](./AoC2021/solutions/07))/07))
+* [Day 07](https://adventofcode.com/2021/day/7) ([solution](./AoC2021/solutions/07))
+* [Day 08](https://adventofcode.com/2021/day/8) ([solution](./AoC2021/solutions/08))
