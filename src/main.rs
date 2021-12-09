@@ -1,4 +1,4 @@
-#[path = "../AoC2018/solutions/18/solution.rs"] mod solution;
+#[path = "../AoC2021/solutions/09/solution.rs"] mod solution;
 
 fn main() {
     solution::solve();
