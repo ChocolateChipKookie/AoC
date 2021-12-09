@@ -1,5 +1,8 @@
-#[path = "../AoC2021/solutions/06/solution.rs"] mod solution;
+#[path = "../AoC2018/solutions/17/solution.rs"] mod solution;
+use std::time::Instant;
 
 fn main() {
+    let now = Instant::now();
     solution::solve();
+    println!("Time elapsed: {}us", now.elapsed().as_micros());
 }
