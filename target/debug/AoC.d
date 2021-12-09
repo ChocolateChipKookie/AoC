@@ -1,1 +1,1 @@
-c:\Users\Adi.Causevic\Documents\Private\AoC\target\debug\AoC.exe: c:\Users\Adi.Causevic\Documents\Private\AoC\AoC2021\solutions\06\solution.rs c:\Users\Adi.Causevic\Documents\Private\AoC\src\main.rs
+/home/kookie/Documents/Projects/AoC/target/debug/AoC: /home/kookie/Documents/Projects/AoC/AoC2021/solutions/08/solution.rs /home/kookie/Documents/Projects/AoC/src/main.rs
