@@ -1,4 +1,5 @@
-#[path = "../AoC2021/solutions/09/solution.rs"] mod solution;
+#[path = "../AoC2021/solutions/11/solution.rs"] mod solution;
+use std::time::Instant;
 
 fn main() {
     let now = Instant::now();
