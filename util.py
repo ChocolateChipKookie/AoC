@@ -219,7 +219,7 @@ def generate_day(day, year=YEAR, download_input=True):
 
 
 if __name__ == "__main__":
-    day = 11
+    day = None
     YEAR = 2021
     if not day:
         import datetime
