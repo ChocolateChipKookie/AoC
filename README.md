@@ -30,6 +30,7 @@ In the solution file of a day, you can find<!SOLUTIONS>
 * [Day 17](https://adventofcode.com/2018/day/17) ([solution](./AoC2018/solutions/17))
 * [Day 18](https://adventofcode.com/2018/day/18) ([solution](./AoC2018/solutions/18))
 * [Day 19](https://adventofcode.com/2018/day/19) ([solution](./AoC2018/solutions/19))
+* [Day 20](https://adventofcode.com/2018/day/20) ([solution](./AoC2018/solutions/20))
 
 ### Year 2019
 

@@ -21,43 +21,33 @@ fn parse_input() -> Vec<(String, String)>{
     return inputs;
 }
 
-fn count_paths(extra_visits: i32) -> i32{
-    let links = parse_input();
-    let mut distinct_paths = 0;
-    let mut state: Vec<(String, HashSet<String>, i32)> = Vec::new();
-    state.push(("start".to_string(), HashSet::new(), extra_visits));
+fn recurse(links: &Vec<(String, String)>, node: &str, visited: &mut HashSet<String>, extra: i32) -> i32 {
+    if node == "end"{
+        return 1;
+    }
+    let is_big = node.chars().next().unwrap().is_uppercase();
+    let insert_visited = !is_big && !visited.contains(node);
+    if insert_visited { visited.insert(node.to_string()); }
 
-    while state.len() > 0 {
-        let (node, visited, extra) = state.pop().unwrap();
-
-        if node == "end" {
-            distinct_paths += 1;
+    let mut total = 0;
+    for (start, end) in links.iter() {
+        if start.to_string() != node { continue }
+        if visited.contains(&end.to_string()) {
+            if extra > 0 && end != "start" {
+                total += recurse(links, end, visited, extra - 1);
+            }
             continue;
         }
-
-        let is_big = node.chars().next().unwrap().is_uppercase();
-
-        for (start, end) in links.iter(){
-            if start.to_string() != node {continue}
-            let was_visited = visited.contains(&end.to_string());
-            let mut next_extra = extra;
-            if was_visited{
-                if extra > 0 && end != "start"{
-                    next_extra -= 1;
-                }
-                else {
-                    continue;
-                }
-            }
-
-            let mut new_visited = visited.clone();
-            if ! is_big{
-                new_visited.insert(node.to_string());
-            }
-            state.push((end.to_string(), new_visited, next_extra));
-        }
+        total += recurse(links, end, visited, extra);
     }
-    return distinct_paths;
+
+    if insert_visited { visited.remove(node); }
+    return total;
+}
+
+fn count_paths(extra_visits: i32) -> i32{
+    let links = parse_input();
+    return recurse(&links, "start", &mut HashSet::new(), extra_visits);
 }
 
 pub fn solve() {
