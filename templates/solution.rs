@@ -2,11 +2,11 @@
 use std::fs::File;
 use std::io::{{BufRead, BufReader}};
 
-fn parse_input() -> Vec::<String>{{
+fn parse_input() -> Vec<String>{{
     let filename = "AoC{year}/solutions/{filled}/input";
     let file = File::open(filename).unwrap();
     let reader = BufReader::new(file);
-    let mut inputs = Vec::<String>::new();
+    let mut inputs: Vec<String> = Vec::new();
 
     for line in reader.lines(){{
         inputs.push(line.unwrap());
