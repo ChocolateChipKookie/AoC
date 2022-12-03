@@ -3,7 +3,7 @@
 It is that time of year, it is getting cold outside, the first christmas trees are starting glitter, and many programmers around the world crack their knuckles solving the [Advent of Code](https://adventofcode.com/).
 This is the repository for my solutions. It is mostly solved in C++ / Julia / Python.
 
-In the solution file of a day, you can find<!SOLUTIONS>
+In the solution fi<!SOLUTIONS>
 <!-- Do not remove this lines, and write nothing after the <!SOLUTIONS> tag -->
 <!--       They are used as marker for the generate_readme() function       -->
 
@@ -115,3 +115,9 @@ In the solution file of a day, you can find<!SOLUTIONS>
 * [Day 23](https://adventofcode.com/2021/day/23) ([solution](./AoC2021/solutions/23))
 * [Day 24](https://adventofcode.com/2021/day/24) ([solution](./AoC2021/solutions/24))
 * [Day 25](https://adventofcode.com/2021/day/25) ([solution](./AoC2021/solutions/25))
+
+### Year 2022
+
+* [Day 01](https://adventofcode.com/2022/day/1) ([solution](./AoC2022/solutions/01))
+* [Day 02](https://adventofcode.com/2022/day/2) ([solution](./AoC2022/solutions/02))
+* [Day 03](https://adventofcode.com/2022/day/3) ([solution](./AoC2022/solutions/03))
