@@ -10,6 +10,9 @@
 #include <functional>
 #include <chrono>
 #include <iostream>
+#include <array>
+#include "util/array.h"
+#include "kki/string.h"
 
 template<typename T_token>
 std::vector<T_token> loadTokens(const std::string& filepath){
@@ -20,16 +23,24 @@ std::vector<T_token> loadTokens(const std::string& filepath){
     return inputs;
 }
 
-std::vector<std::string> loadLines(const std::string& filepath, bool include_empty=false){
+std::vector<kki::string> loadLines(const std::string& filepath, bool include_empty=true){
     std::ifstream ifs(filepath);
     std::string line;
-    std::vector<std::string> inputs;
+    std::vector<kki::string> inputs;
     while (std::getline(ifs, line)){
         if (include_empty || !line.empty()){
-            inputs.push_back(line);
+            inputs.emplace_back(line);
         }
     }
     return inputs;
+}
+
+template<class T_data>
+Grid<T_data> loadGrid(const std::string& filepath){
+    std::ifstream ifs(filepath);
+    Grid<T_data> g;
+    ifs >> g;
+    return g;
 }
 
 template<typename T_res>
@@ -40,5 +51,7 @@ void print_solution(size_t day, bool easy, const T_res& result, const std::strin
     }
     std::cout << result << std::endl;
 }
+
+
 
 #endif //AOC_UTIL_H

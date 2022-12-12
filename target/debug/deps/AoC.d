@@ -1,6 +1,6 @@
-c:\Users\Adi.Causevic\Documents\Private\AoC\target\debug\deps\AoC.exe: src\main.rs src\..\AoC2018\solutions\17\solution.rs
+C:\Users\Adi\Documents\Projects\AoC\target\debug\deps\aoc.exe: src\main.rs src\..\AoC2022\solutions\08\solution.rs
 
-c:\Users\Adi.Causevic\Documents\Private\AoC\target\debug\deps\AoC.d: src\main.rs src\..\AoC2018\solutions\17\solution.rs
+C:\Users\Adi\Documents\Projects\AoC\target\debug\deps\aoc.d: src\main.rs src\..\AoC2022\solutions\08\solution.rs
 
 src\main.rs:
-src\..\AoC2018\solutions\17\solution.rs:
+src\..\AoC2022\solutions\08\solution.rs:

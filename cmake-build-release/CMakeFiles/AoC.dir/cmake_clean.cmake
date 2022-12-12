@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
   "AoC.exe"
   "AoC.exe.manifest"
+  "AoC.lib"
   "AoC.pdb"
   "CMakeFiles/AoC.dir/main.cpp.obj"
   "CMakeFiles/AoC.dir/main.cpp.obj.d"
-  "libAoC.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

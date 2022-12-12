@@ -1,1 +1,1 @@
-/home/kookie/Documents/Projects/AoC/target/debug/AoC: /home/kookie/Documents/Projects/AoC/AoC2021/solutions/08/solution.rs /home/kookie/Documents/Projects/AoC/src/main.rs
+C:\Users\Adi\Documents\Projects\AoC\target\debug\aoc.exe: C:\Users\Adi\Documents\Projects\AoC\AoC2018\solutions\23\solution.rs C:\Users\Adi\Documents\Projects\AoC\src\main.rs

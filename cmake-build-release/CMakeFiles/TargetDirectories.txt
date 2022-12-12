@@ -1,3 +1,3 @@
-C:/Users/adica/Documents/AoC/cmake-build-release/CMakeFiles/AoC.dir
-C:/Users/adica/Documents/AoC/cmake-build-release/CMakeFiles/edit_cache.dir
-C:/Users/adica/Documents/AoC/cmake-build-release/CMakeFiles/rebuild_cache.dir
+C:/Users/Adi/Documents/Projects/AoC/cmake-build-release/CMakeFiles/AoC.dir
+C:/Users/Adi/Documents/Projects/AoC/cmake-build-release/CMakeFiles/edit_cache.dir
+C:/Users/Adi/Documents/Projects/AoC/cmake-build-release/CMakeFiles/rebuild_cache.dir

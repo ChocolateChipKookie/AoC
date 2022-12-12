@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/adica/Documents/AoC/main.cpp" "CMakeFiles/AoC.dir/main.cpp.obj" "gcc" "CMakeFiles/AoC.dir/main.cpp.obj.d"
+  "C:/Users/Adi/Documents/Projects/AoC/main.cpp" "CMakeFiles/AoC.dir/main.cpp.obj" "msvc" "CMakeFiles/AoC.dir/main.cpp.obj.d"
   )
 
 # Targets to which this target links.
