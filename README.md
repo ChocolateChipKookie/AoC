@@ -1,7 +1,7 @@
 # AdventOfCode
 
 It is that time of year, it is getting cold outside, the first christmas trees are starting glitter, and many programmers around the world crack their knuckles solving the [Advent of Code](https://adventofcode.com/).
-This is the repository for my solutions. It is mostly so<!SOLUTIONS>
+This is the repository for my solutions. It is mos<!SOLUTIONS>
 <!-- Do not remove this lines, and write nothing after the <!SOLUTIONS> tag -->
 <!--       They are used as marker for the generate_readme() function       -->
 
@@ -131,3 +131,4 @@ This is the repository for my solutions. It is mostly so<!SOLUTIONS>
 * [Day 10](https://adventofcode.com/2022/day/10) ([solution](./AoC2022/solutions/10))
 * [Day 11](https://adventofcode.com/2022/day/11) ([solution](./AoC2022/solutions/11))
 * [Day 12](https://adventofcode.com/2022/day/12) ([solution](./AoC2022/solutions/12))
+* [Day 13](https://adventofcode.com/2022/day/13) ([solution](./AoC2022/solutions/13))3))

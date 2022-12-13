@@ -8,6 +8,7 @@
 #include "../../../util/array.h"
 #include <unordered_set>
 #include <queue>
+#include <ranges>
 
 std::string sourceDirectory = "../AoC2022/solutions/12";
 
