@@ -14,6 +14,7 @@
 #include <functional>
 #include <chrono>
 #include <iostream>
+#include <kki/string.h>
 
 template<typename T_token>
 std::vector<T_token> loadTokens(const std::string& filepath){
@@ -24,13 +25,14 @@ std::vector<T_token> loadTokens(const std::string& filepath){
     return inputs;
 }
 
-std::vector<std::string> loadLines(const std::string& filepath, bool include_empty=false){
+template<class T_str = std::string>
+std::vector<T_str> loadLines(const std::string& filepath, bool include_empty=false){
     std::ifstream ifs(filepath);
     std::string line;
-    std::vector<std::string> inputs;
+    std::vector<T_str> inputs;
     while (std::getline(ifs, line)){
         if (include_empty || !line.empty()){
-            inputs.push_back(line);
+            inputs.emplace_back(line);
         }
     }
     return inputs;
