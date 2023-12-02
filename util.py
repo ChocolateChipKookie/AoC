@@ -3,8 +3,7 @@ from aocd import get_data
 import re
 import datetime
 
-session = "53616c7465645f5fd478f27a2ac091850f904757952212cc820240df3107e0a2528a0f8102fa25c6afea211a56644a6c7e575e46462eabcc52a7bc33f9addfe8"
-os.environ["AOC_SESSION"] = session
+session = os.environ["AOC_SESSION"]
 YEAR = datetime.datetime.today().year
 
 
@@ -220,10 +219,12 @@ def generate_day(day, year=YEAR, download_input=True):
 
 if __name__ == "__main__":
     day = None
-    YEAR = 2022
-    if not day:
+    year = None
+    if not day or not year:
         import datetime
-        day = datetime.datetime.today().day
+        today = datetime.datetime.today()
+        day = today.day
+        year = today.year
 
-    generate_day(day, YEAR, True)
+    generate_day(day, year, True)
     update_readme()

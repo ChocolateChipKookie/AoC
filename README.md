@@ -32,6 +32,8 @@ This is the repository for my solutions. It <!SOLUTIONS>
 * [Day 21](https://adventofcode.com/2018/day/21) ([solution](./AoC2018/solutions/21))
 * [Day 22](https://adventofcode.com/2018/day/22) ([solution](./AoC2018/solutions/22))
 * [Day 23](https://adventofcode.com/2018/day/23) ([solution](./AoC2018/solutions/23))
+* [Day 24](https://adventofcode.com/2018/day/24) ([solution](./AoC2018/solutions/24))
+* [Day 25](https://adventofcode.com/2018/day/25) ([solution](./AoC2018/solutions/25))
 
 ### Year 2019
 
@@ -132,4 +134,15 @@ This is the repository for my solutions. It <!SOLUTIONS>
 * [Day 11](https://adventofcode.com/2022/day/11) ([solution](./AoC2022/solutions/11))
 * [Day 12](https://adventofcode.com/2022/day/12) ([solution](./AoC2022/solutions/12))
 * [Day 13](https://adventofcode.com/2022/day/13) ([solution](./AoC2022/solutions/13))
-* [Day 14](https://adventofcode.com/2022/day/14) ([solution](./AoC2022/solutions/14))4))
+* [Day 14](https://adventofcode.com/2022/day/14) ([solution](./AoC2022/solutions/14))
+* [Day 15](https://adventofcode.com/2022/day/15) ([solution](./AoC2022/solutions/15))
+* [Day 16](https://adventofcode.com/2022/day/16) ([solution](./AoC2022/solutions/16))
+* [Day 17](https://adventofcode.com/2022/day/17) ([solution](./AoC2022/solutions/17))
+* [Day 18](https://adventofcode.com/2022/day/18) ([solution](./AoC2022/solutions/18))
+* [Day 19](https://adventofcode.com/2022/day/19) ([solution](./AoC2022/solutions/19))
+* [Day 20](https://adventofcode.com/2022/day/20) ([solution](./AoC2022/solutions/20))
+
+### Year 2023
+
+* [Day 01](https://adventofcode.com/2023/day/1) ([solution](./AoC2023/solutions/01))
+* [Day 02](https://adventofcode.com/2023/day/2) ([solution](./AoC2023/solutions/02))
