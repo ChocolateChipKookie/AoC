@@ -6,6 +6,17 @@ import datetime
 session = os.environ["AOC_SESSION"]
 YEAR = datetime.datetime.today().year
 
+def print_array(array: list[list[str]]):
+    for line in array:
+        print("".join(line))
+
+def get_positions_in_array(array: list[list[str]], target: str) -> dict[tuple[int, int], str]:
+    res = {}
+    for y, line in enumerate(array):
+        for x, c in enumerate(line):
+            if c in target:
+                res[x, y] = c
+    return res
 
 def get_input(day, year=YEAR, path=None):
     if path is None:
@@ -41,6 +52,11 @@ def get_lines(string):
 
 def input_lines(day, year=YEAR):
     return get_lines(get_input(day, year))
+
+
+def input_array(day, year=YEAR):
+    lines = get_lines(get_input(day, year))
+    return [[c for c in line] for line in lines]
 
 
 def get_integers(string):
