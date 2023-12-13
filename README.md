@@ -155,3 +155,4 @@ This is the repository for my solutions. It <!SOLUTIONS>
 * [Day 09](https://adventofcode.com/2023/day/9) ([solution](./AoC2023/solutions/09))
 * [Day 10](https://adventofcode.com/2023/day/10) ([solution](./AoC2023/solutions/10))
 * [Day 11](https://adventofcode.com/2023/day/11) ([solution](./AoC2023/solutions/11))
+* [Day 12](https://adventofcode.com/2023/day/12) ([solution](./AoC2023/solutions/12))

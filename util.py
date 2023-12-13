@@ -3,7 +3,7 @@ from aocd import get_data
 import re
 import datetime
 
-session = os.environ["AOC_SESSION"]
+session = os.environ.get("AOC_SESSION", None)
 YEAR = datetime.datetime.today().year
 
 def print_array(array: list[list[str]]):

@@ -1,3 +1,3 @@
-C:/Users/Adi.Causevic/Documents/Private/AoC/build/CMakeFiles/AoC.dir
-C:/Users/Adi.Causevic/Documents/Private/AoC/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/Adi.Causevic/Documents/Private/AoC/build/CMakeFiles/ZERO_CHECK.dir
+/home/kookie/Projects/AoC/build/CMakeFiles/AoC.dir
+/home/kookie/Projects/AoC/build/CMakeFiles/edit_cache.dir
+/home/kookie/Projects/AoC/build/CMakeFiles/rebuild_cache.dir
