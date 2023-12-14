@@ -10,6 +10,15 @@ def print_array(array: list[list[str]]):
     for line in array:
         print("".join(line))
 
+def transpose_array(array: list[list[str]]):
+    return [list(t) for t in zip(*array)]
+
+def rotate_array(array: list[list[str]], clockwise: bool = True):
+    if clockwise:
+        return transpose_array(array[::-1])
+    else:
+        return transpose_array(array)[::-1]
+
 def get_positions_in_array(array: list[list[str]], target: str) -> dict[tuple[int, int], str]:
     res = {}
     for y, line in enumerate(array):
