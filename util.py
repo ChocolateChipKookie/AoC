@@ -243,8 +243,8 @@ def generate_day(day, year=YEAR, download_input=True):
 
 
 if __name__ == "__main__":
-    day = None
-    year = None
+    day = 23
+    year = 2023
     if not day or not year:
         import datetime
         today = datetime.datetime.today()
