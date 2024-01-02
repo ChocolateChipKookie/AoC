@@ -64,19 +64,19 @@ def create_graph(ignore_slopes: bool = False):
                     break
             if length is not None:
                 result[node][current] = length
-
     return result
 
-global_max = 0
-def get_max_path(current: Position, visited: set[Position]):
+def get_max_path(current, visited = None, total: int = 0):
+    if visited is None:
+        visited = set()
     if current == end:
-        return 0
+        return total
     result = 0
     visited.add(current)
     for neighbour, distance in graph[current].items():
         if neighbour in visited:
             continue
-        result = max(result, get_max_path(neighbour, visited) + distance)
+        result = max(result, get_max_path(neighbour, visited, total + distance))
     visited.remove(current)
     return result
 
@@ -84,12 +84,9 @@ def get_max_path(current: Position, visited: set[Position]):
 start = "".join(hiking_map[0]).find("."), 0
 end = "".join(hiking_map[-1]).find("."), len(hiking_map) - 1
 
-
-
 graph = create_graph(False)
-first = get_max_path(start, set())
-print("First:  ", first)
+first = get_max_path(start)
 graph = create_graph(True)
-print("\n".join(str(s) for s in graph.items()))
-second = get_max_path(start, set())
+second = get_max_path(start)
+print("First:  ", first)
 print("Second: ", second)
