@@ -1,14 +1,18 @@
-#Advent of Code 2023 day 3
+# Advent of Code 2023 day 3
 from util import *
 from dataclasses import dataclass, field
+
 YEAR = 2023
 DAY = 3
+
 
 def get_data():
     return input_lines(DAY, YEAR)
 
+
 data = get_data()
 grid = [[c for c in s] for s in data]
+
 
 @dataclass
 class Number:
@@ -20,14 +24,16 @@ class Number:
             dx = abs(p1[0] - p2[0])
             dy = abs(p1[1] - p2[1])
             return max(dx, dy)
+
         return any(max_manhattan(part[1], p) <= 1 for p in self.adjacent)
 
-numbers: list[Number]= []
+
+numbers: list[Number] = []
 parts = []
 
 for j, line in enumerate(grid):
     current_number = None
-    for i,  val in enumerate(line):
+    for i, val in enumerate(line):
         if val.isdigit():
             if not current_number:
                 current_number = Number()

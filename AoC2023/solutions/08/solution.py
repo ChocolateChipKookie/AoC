@@ -1,9 +1,11 @@
-#Advent of Code 2023 day 8
+# Advent of Code 2023 day 8
 from dataclasses import dataclass
 import math
 from util import *
+
 YEAR = 2023
 DAY = 8
+
 
 def get_data() -> tuple[str, dict[str, list[str]]]:
     lines = input_lines(DAY, YEAR)
@@ -14,6 +16,7 @@ def get_data() -> tuple[str, dict[str, list[str]]]:
         result[lr[0]] = lr[1][1:-1].split(", ")
     return instructions, result
 
+
 def count_steps(instrunctions: str, mapping: dict[str, list[str]]):
     total_steps = 0
     current = "AAA"
@@ -23,6 +26,7 @@ def count_steps(instrunctions: str, mapping: dict[str, list[str]]):
         total_steps += 1
     return total_steps
 
+
 @dataclass
 class GhostDescriptor:
     start: str
@@ -31,7 +35,10 @@ class GhostDescriptor:
     first_end: int = 0
     loop_size: int = 0
 
-def count_steps_ghostly(instrunctions: str, mapping: dict[str, list[str]]) -> int:
+
+def count_steps_ghostly(
+    instrunctions: str, mapping: dict[str, list[str]]
+) -> int:
     step = 0
     ghosts = [GhostDescriptor(x, x) for x in mapping if x.endswith("A")]
     all_ghosts = [g for g in ghosts]
@@ -49,6 +56,7 @@ def count_steps_ghostly(instrunctions: str, mapping: dict[str, list[str]]) -> in
                     ghost.loop_size = step - ghost.first_end
         ghosts = [g for g in ghosts if not g.loop_size]
     return math.lcm(*[g.loop_size for g in all_ghosts])
+
 
 data = get_data()
 

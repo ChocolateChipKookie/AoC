@@ -1,10 +1,13 @@
-#Advent of Code 2023 day 15
+# Advent of Code 2023 day 15
 from util import *
+
 YEAR = 2023
 DAY = 15
 
+
 def get_data():
     return input_lines(DAY, YEAR)[0].split(",")
+
 
 def calc_hash(line):
     total = 0
@@ -13,6 +16,7 @@ def calc_hash(line):
         total *= 17
         total %= 256
     return total
+
 
 def get_commands():
     commands = []
@@ -43,7 +47,6 @@ for label, action, count in get_commands():
     else:
         if action == "=":
             bucket.append([label, count])
-
 
 
 second = 0

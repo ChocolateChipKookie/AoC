@@ -64,7 +64,9 @@ def explore_loop(
             return None
 
         path[current] = val
-        previous, current = current, next(x for x in neighbours if x != previous)
+        previous, current = current, next(
+            x for x in neighbours if x != previous
+        )
     last = previous
 
     for c in "|-LJ7F":

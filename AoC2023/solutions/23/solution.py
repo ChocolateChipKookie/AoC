@@ -1,13 +1,16 @@
-#Advent of Code 2023 day 23
+# Advent of Code 2023 day 23
 from util import *
 import sys
+
 sys.setrecursionlimit(50000)
 
 YEAR = 2023
 DAY = 23
 
+
 def get_data():
     return input_array(DAY, YEAR)
+
 
 hiking_map = get_data()
 distances = {}
@@ -21,6 +24,7 @@ neighbours = {
     (-1, 0): "<",
 }
 
+
 def create_graph(ignore_slopes: bool = False):
     nodes = [start, end]
 
@@ -29,7 +33,6 @@ def create_graph(ignore_slopes: bool = False):
         if slope is None or ignore_slopes:
             return val != "#"
         return val == "." or val == slope
-
 
     for y, line in enumerate(hiking_map[1:-1], 1):
         for x, c in enumerate(line[1:-1], 1):
@@ -66,7 +69,8 @@ def create_graph(ignore_slopes: bool = False):
                 result[node][current] = length
     return result
 
-def get_max_path(current, visited = None, total: int = 0):
+
+def get_max_path(current, visited=None, total: int = 0):
     if visited is None:
         visited = set()
     if current == end:
@@ -76,7 +80,9 @@ def get_max_path(current, visited = None, total: int = 0):
     for neighbour, distance in graph[current].items():
         if neighbour in visited:
             continue
-        result = max(result, get_max_path(neighbour, visited, total + distance))
+        result = max(
+            result, get_max_path(neighbour, visited, total + distance)
+        )
     visited.remove(current)
     return result
 

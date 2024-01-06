@@ -1,13 +1,20 @@
-#Advent of Code 2023 day 12
+# Advent of Code 2023 day 12
 from util import *
+
 YEAR = 2023
 DAY = 12
 
+
 def get_data():
     data = [t.split() for t in input_lines(DAY, YEAR)]
-    return [(l.replace(".", " "), [int(t) for t in r.split(",")]) for l, r in data]
+    return [
+        (l.replace(".", " "), [int(t) for t in r.split(",")]) for l, r in data
+    ]
+
 
 cache = {}
+
+
 def count_valid(springs: str, lengths: list[int]):
     cached = cache.get((springs, tuple(lengths)), None)
     if cached is not None:
@@ -27,7 +34,7 @@ def count_valid(springs: str, lengths: list[int]):
         return sum(l - length + 1 for l in others if l >= length)
 
     target = max(lengths)
-    indices = [i for i, t in enumerate(lengths) if t ==target]
+    indices = [i for i, t in enumerate(lengths) if t == target]
 
     pivot = indices[len(indices) // 2]
     current_len = lengths[pivot]
@@ -43,14 +50,19 @@ def count_valid(springs: str, lengths: list[int]):
         if end != len(springs) and springs[end] == "#":
             continue
 
-        left = count_valid(springs[:max(0, begin - 1)].strip(), lengths[:pivot])
+        left = count_valid(
+            springs[: max(0, begin - 1)].strip(), lengths[:pivot]
+        )
         if not left:
             continue
-        right = count_valid(springs[min(len(springs), end + 1):].strip(), lengths[pivot + 1:])
+        right = count_valid(
+            springs[min(len(springs), end + 1) :].strip(), lengths[pivot + 1 :]
+        )
         total += left * right
 
-    cache[springs, tuple(lengths)]= total
+    cache[springs, tuple(lengths)] = total
     return total
+
 
 data = get_data()
 

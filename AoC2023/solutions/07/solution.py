@@ -1,15 +1,18 @@
-#Advent of Code 2023 day 7
+# Advent of Code 2023 day 7
 from util import *
 from collections import Counter
 from functools import cmp_to_key
+
 YEAR = 2023
 DAY = 7
 
 HandBid = tuple[str, int]
 
+
 def get_data() -> list[tuple[str, int]]:
     tokens = (t.split() for t in input_lines(DAY, YEAR))
     return [(h, int(n)) for h, n in tokens]
+
 
 def compare(h1: HandBid, h2: HandBid, joker_rule: bool = False):
     def get_type(h: str) -> int:
@@ -49,11 +52,14 @@ def compare(h1: HandBid, h2: HandBid, joker_rule: bool = False):
         return -1 if to_vals(h1[0]) < to_vals(h2[0]) else 1
     return -1 if t1 < t2 else 1
 
+
 def compare_joker(h1, h2):
     return compare(h1, h2, True)
 
+
 def calc_winnings(sorted_data):
     return sum(i * val[1] for i, val in enumerate(sorted_data, 1))
+
 
 data = get_data()
 

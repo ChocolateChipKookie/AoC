@@ -85,9 +85,10 @@ def get_data():
     modules[output] = Output(output)
     return modules
 
+
 def run():
     state = deepcopy(data)
-    counts = {False: 0, True:0}
+    counts = {False: 0, True: 0}
     for _ in range(1000):
         queue = [("broadcaster", False, "button")]
         while queue:
@@ -95,6 +96,7 @@ def run():
             counts[signal] += 1
             state[target](queue, signal, origin)
     return counts[True] * counts[False]
+
 
 def run_rx():
     state = deepcopy(data)

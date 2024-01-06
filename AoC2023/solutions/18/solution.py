@@ -1,11 +1,17 @@
-#Advent of Code 2023 day 18
+# Advent of Code 2023 day 18
 from util import *
+
 YEAR = 2023
 DAY = 18
 
+
 def get_data():
-    data = [(d, int(l), h[2:-1]) for d, l, h in [d.split() for d in input_lines(DAY, YEAR)]]
+    data = [
+        (d, int(l), h[2:-1])
+        for d, l, h in [d.split() for d in input_lines(DAY, YEAR)]
+    ]
     first = [(d, l) for d, l, _ in data]
+
     def parse_hex(h):
         direction = "RDLU"[int(h[-1])]
         num = int(h[:-1], base=16)
@@ -21,6 +27,7 @@ directions = {
     "U": (0, 1),
     "D": (0, -1),
 }
+
 
 def calc_volume(data):
     points = []
@@ -38,6 +45,7 @@ def calc_volume(data):
         area += p1[0] * p2[1]
         area -= p1[1] * p2[0]
     return abs(area // 2) + edges // 2 + 1
+
 
 data1, data2 = get_data()
 
