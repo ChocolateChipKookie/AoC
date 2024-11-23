@@ -1,4 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2022.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - NMake Makefiles" -S C:\Users\Adi\Documents\Projects\AoC -B C:\Users\Adi\Documents\Projects\AoC\cmake-build-release
--- Configuring done
--- Generating done
--- Build files have been written to: C:/Users/Adi/Documents/Projects/AoC/cmake-build-release
