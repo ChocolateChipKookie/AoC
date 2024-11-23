@@ -51,7 +51,7 @@ void task_02(){
     print_solution(1, false, sum);
 }
 
-void solution(){
+int main(){
     task_01();
     task_02();
 }

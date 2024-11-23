@@ -48,7 +48,7 @@ Monkey::T_int run(std::vector<Monkey> monkeys, int total_rounds, bool level_drop
     return monkeys[0].inspections * monkeys[1].inspections;
 }
 
-void solution(){
+int main(){
     auto data = loadLines(sourceDirectory + "/input");
     std::vector<Monkey> monkeys;
     monkeys.reserve(data.size() / 7);

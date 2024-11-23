@@ -144,7 +144,7 @@ void task_02(std::vector<Position>& positions){
     print_solution(18, false, res);
 }
 
-void solution(){
+int main(){
     auto lines = loadLines(sourceDirectory + "/input");
     auto parse = [](const kki::string& str){
         int_t result;

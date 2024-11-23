@@ -147,7 +147,7 @@ void task_02(CharGrid& data, Position end){
     }
 }
 
-void solution(){
+int main(){
     CharGrid data = loadGrid<char>(sourceDirectory + "/input");
     auto& raw = data.data();
     auto start_it = std::find(raw.begin(), raw.end(), 'S');

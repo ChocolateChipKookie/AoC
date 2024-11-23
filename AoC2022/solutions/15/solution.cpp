@@ -81,7 +81,7 @@ void task_02(std::vector<Sensor>& sensors){
 
 
 
-void solution(){
+int main(){
     auto data = loadLines(sourceDirectory + "/input");
     std::vector<Sensor> sensors;
     sensors.reserve(data.size());

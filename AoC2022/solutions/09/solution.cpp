@@ -1,10 +1,8 @@
 //Advent of Code 2022 day 9
 #ifndef AOC_09_H
 #define AOC_09_H
-#include "../../util.h"
-#include <iostream>
+#include "util.hpp"
 #include <algorithm>
-#include <numeric>
 #include <set>
 #include <map>
 
@@ -90,7 +88,7 @@ void task_02(const std::vector<std::pair<char, int>>& moves){
     print_solution(9, false, visited.size());
 }
 
-void solution(){
+int main(){
     auto data = loadTokens<std::string>(sourceDirectory + "/input");
     std::vector<std::pair<char, int>> moves;
     moves.reserve(data.size()/2);

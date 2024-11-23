@@ -1,11 +1,9 @@
 //
 // Created by Adi on 12/9/2022.
 //
-
-#ifndef AOC_ARRAY_H
-#define AOC_ARRAY_H
-
+#pragma once
 #include <array>
+#include <utility>
 #include <vector>
 #include <cassert>
 #include <exception>
@@ -14,7 +12,18 @@
 #include <istream>
 #include <sstream>
 
+namespace impl {
+
+template <class T> static T parse(char c) { return c; };
+
+template <> char parse<char>(char c) { return c; }
+
+template <> int parse<int>(char c) { return c - '0'; }
+
+} // namespace impl
+
 template <typename T_data>
+
 class Grid {
 private:
     class GridSpan{
@@ -35,21 +44,6 @@ private:
 
     std::array<size_t, 2> _size {0, 0};
     std::vector<T_data> _data;
-
-    template<class T>
-    static T parse(char c){
-        return c;
-    };
-
-    template<>
-    static char parse<char>(char c){
-        return c;
-    }
-
-    template<>
-    static int parse<int>(char c){
-        return c - '0';
-    }
 
 public:
     Grid() = default;
@@ -102,7 +96,7 @@ public:
         if (dim == 0){
             return GridSpan(_data, _size[0] * i, 1);
         }
-        return ;
+        std::unreachable();
     }
     [[nodiscard]] Grid::GridSpan operator[](size_t x){
         return GridSpan(_data, x, _size[0]);
@@ -206,7 +200,7 @@ public:
                 }
             }
             else{
-                grid._data.push_back(parse<T_data>(c));
+              grid._data.push_back(impl::parse<T_data>(c));
                 i += 1;
             }
         }
@@ -228,5 +222,3 @@ public:
 
 using IntGrid = Grid<int>;
 using CharGrid = Grid<char>;
-
-#endif //AOC_ARRAY_H

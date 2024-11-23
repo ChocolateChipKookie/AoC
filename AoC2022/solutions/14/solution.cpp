@@ -103,7 +103,7 @@ void task_02(std::unordered_set<Position> blocks){
     print_solution(14, false, sand.size());
 }
 
-void solution(){
+int main(){
     auto data = loadLines(sourceDirectory + "/input");
     std::unordered_set<Position> blocks;
 

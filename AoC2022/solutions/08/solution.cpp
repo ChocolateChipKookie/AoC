@@ -92,7 +92,7 @@ void task_02(){
     print_solution(8, false, res);
 }
 
-void solution(){
+int main(){
     task_01();
     task_02();
 }

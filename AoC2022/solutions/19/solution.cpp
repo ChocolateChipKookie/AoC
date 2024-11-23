@@ -154,7 +154,7 @@ void task_02(std::vector<Blueprint>& blueprints){
     print_solution(19, false, result);
 }
 
-void solution(){
+int main(){
     auto data = loadLines(sourceDirectory + "/input");
     std::vector<Blueprint> blueprints;
     blueprints.reserve(data.size());

@@ -3,16 +3,11 @@
 
 #include <vector>
 #include <string>
-#include <sstream>
 #include <iterator>
 #include <fstream>
-#include <tuple>
-#include <functional>
-#include <chrono>
 #include <iostream>
-#include <array>
-#include "util/array.h"
-#include "kki/string.h"
+#include "array.hpp"
+#include "string.hpp"
 
 template<typename T_token>
 std::vector<T_token> loadTokens(const std::string& filepath){
@@ -29,7 +24,7 @@ std::vector<kki::string> loadLines(const std::string& filepath, bool include_emp
     std::vector<kki::string> inputs;
     while (std::getline(ifs, line)){
         if (include_empty || !line.empty()){
-            inputs.emplace_back(line);
+            inputs.emplace_back(line.c_str());
         }
     }
     return inputs;

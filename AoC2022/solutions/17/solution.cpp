@@ -245,7 +245,7 @@ void task_02(const kki::string& input){
     print_solution(17, false, layers.size() - 4 + layers_skipped);
 }
 
-void solution(){
+int main(){
     auto line = loadLines(sourceDirectory + "/input")[0];
 
     task_01(line);
