@@ -1,1 +1,0 @@
-C:\Users\Adi.Causevic\Documents\Private\AoC\target\release\AoC.exe: C:\Users\Adi.Causevic\Documents\Private\AoC\AoC2021\solutions\06\solution.rs C:\Users\Adi.Causevic\Documents\Private\AoC\src\main.rs

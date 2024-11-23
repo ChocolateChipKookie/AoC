@@ -1,3 +1,0 @@
-/home/kookie/Projects/AoC/build/CMakeFiles/AoC.dir
-/home/kookie/Projects/AoC/build/CMakeFiles/edit_cache.dir
-/home/kookie/Projects/AoC/build/CMakeFiles/rebuild_cache.dir
