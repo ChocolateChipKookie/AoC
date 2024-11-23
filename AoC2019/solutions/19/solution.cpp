@@ -240,6 +240,7 @@ void task_02(){
             }
         }
     }
+    std::cout << std::endl;
 }
 
 int main() {

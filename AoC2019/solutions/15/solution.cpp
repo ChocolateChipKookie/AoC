@@ -348,7 +348,7 @@ void task_02(){
     }
 
     std::set<std::pair<lli, lli>> visited;
-    std::cout << "Second: " << recursive_oxygen_fill(visited, tank_position) - 1;
+    std::cout << "Second: " << recursive_oxygen_fill(visited, tank_position) - 1 << std::endl;
 }
 
 int main() {

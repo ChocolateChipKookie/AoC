@@ -13,7 +13,6 @@ std::map<lli, lli> context;
 lli relative = 0;
 
 void task_01(){
-
     auto inputs_ = loadIntcode(sourceDirectory + "/input");
     size_t res{0};
 
@@ -179,18 +178,12 @@ void task_01(){
 }
 
 void task_02(){
-    std::ifstream ifs("Text.txt");
-    std::istream_iterator<lli> begin(ifs), end;
-    std::vector<lli> inputs_{ begin, end };
-    ifs.close();
+  auto inputs_ = loadIntcode(sourceDirectory + "/input");
+  std::map<lli, lli> &inputs = context;
+  std::vector<lli> results;
 
-    std::map<lli, lli>& inputs = context;
-
-    std::vector<lli> results;
-
-    for (lli i = 0; i < inputs_.size(); ++i)
-    {
-        inputs[i] = inputs_[i];
+  for (lli i = 0; i < inputs_.size(); ++i) {
+    inputs[i] = inputs_[i];
     }
 
     lli i = 0;
@@ -350,7 +343,7 @@ void task_02(){
     {
         for (int x = x_range.second; x >= x_range.first; --x)
         {
-            std::cout << (painted[{x, y}] ? static_cast<char>(178) : ' ');
+            std::cout << (painted[{x, y}] ? '#' : '.');
         }
         std::cout << std::endl;
     }
