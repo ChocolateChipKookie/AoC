@@ -5,10 +5,10 @@
 #include <algorithm>
 #include <queue>
 #include <map>
-#include <set>
 #include <fstream>
 #include <iterator>
 #include <sstream>
+#include <array>
 
 std::vector<long long int> loadIntcode(const std::string& filepath){
     std::ifstream ifs(filepath);
@@ -294,9 +294,9 @@ void task_02(){
     }
 }
 
-void solution(){
-    task_01();
-    task_02();
+int main() {
+  task_01();
+  task_02();
 }
 
 #endif //AOC_23_H

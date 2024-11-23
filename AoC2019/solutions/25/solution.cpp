@@ -8,7 +8,7 @@
 #include <sstream>
 #include <vector>
 #include <map>
-#include <set>
+#include <array>
 
 using lli = long long;
 std::vector<lli> loadIntcode(const std::string& filepath){
@@ -256,10 +256,9 @@ J - Corridor
 	Molten lava
  */
 
-
-void solution(){
-    task_01();
-    task_02();
+int main() {
+  task_01();
+  task_02();
 }
 
 #endif //AOC_25_H

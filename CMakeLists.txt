@@ -41,7 +41,7 @@ endfunction()
 
 # Scan the directories and create targets
 message(WARNING "Doing gods work")
-file(GLOB_RECURSE solution_files "AoC2022/*/*")
+file(GLOB_RECURSE solution_files "AoC*/*/*")
 foreach(file_path IN LISTS solution_files)
   add_solution_target(${file_path})
 endforeach()

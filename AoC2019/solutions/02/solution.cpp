@@ -1,7 +1,7 @@
 //Advent of Code 2019 day 2
 #ifndef AOC_02_H
 #define AOC_02_H
-#include "../../../AoC2019/util.h"
+#include "util.hpp"
 #include <iostream>
 #include <algorithm>
 
@@ -37,7 +37,7 @@ void task_02(){
     }
 }
 
-void solution(){
+int main(){
     task_01();
     task_02();
 }

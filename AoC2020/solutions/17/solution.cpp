@@ -1,7 +1,7 @@
 //Advent of Code 2020 day 17
 #ifndef AOC_17_H
 #define AOC_17_H
-#include "../../util.h"
+#include "util.hpp"
 #include <iostream>
 #include <algorithm>
 #include <map>
@@ -168,9 +168,9 @@ void task_02(){
     print_solution(17, false, res);
 }
 
-void solution(){
-    taks_01();
-    taks_02();
+int main(){
+    task_01();
+    task_02();
 }
 
 #endif //AOC_17_H

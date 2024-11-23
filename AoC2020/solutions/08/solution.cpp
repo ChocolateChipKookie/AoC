@@ -1,9 +1,7 @@
 //Advent of Code 2020 day 8
 #ifndef AOC_08_H
 #define AOC_08_H
-#include "../../util.h"
-#include <iostream>
-#include <algorithm>
+#include "util.hpp"
 #include <set>
 
 std::string sourceDirectory = "../AoC2020/solutions/08";
@@ -77,9 +75,9 @@ void task_02(){
 
 }
 
-void solution(){
-    taks_01();
-    taks_02();
+int main(){
+    task_01();
+    task_02();
 }
 
 #endif //AOC_08_H

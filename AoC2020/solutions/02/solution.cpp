@@ -2,10 +2,9 @@
 // Created by kookie on 01. 12. 2020..
 //
 
-#ifndef AOC_01_H
-#define AOC_01_H
-#include "../../util.h"
-#include <iostream>
+#ifndef AOC_02_H
+#define AOC_02_H
+#include "util.hpp"
 #include <algorithm>
 
 std::string sourceDirectory = "../solutions/02";
@@ -52,9 +51,9 @@ void task_02(){
     print_solution(2, false, res);
 }
 
-void solution(){
-    taks_01();
-    taks_02();
+int main(){
+    task_01();
+    task_02();
 }
 
-#endif //AOC_01_H
+#endif //AOC_02_H

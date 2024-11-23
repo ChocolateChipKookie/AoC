@@ -1,7 +1,7 @@
 //Advent of Code 2019 day 15
 #ifndef AOC_15_H
 #define AOC_15_H
-#include "../../util.h"
+#include "util.hpp"
 #include <iostream>
 #include <algorithm>
 #include <set>
@@ -351,10 +351,9 @@ void task_02(){
     std::cout << "Second: " << recursive_oxygen_fill(visited, tank_position) - 1;
 }
 
-void solution(){
-    task_01();
-    task_02();
+int main() {
+  task_01();
+  task_02();
 }
-
 
 #endif //AOC_15_H

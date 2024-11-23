@@ -1,13 +1,13 @@
-//Advent of Code 2019 day 19
-#ifndef AOC_19_H
-#define AOC_19_H
-#include "../../util.h"
+//Advent of Code 2019 day 21
+#ifndef AOC_21_H
+#define AOC_21_H
+#include "util.hpp"
 #include <iostream>
 #include <algorithm>
+#include <map>
 #include <set>
 
-std::string sourceDirectory = "../AoC2019/solutions/19";
-
+std::string sourceDirectory = "../AoC2019/solutions/21";
 
 using lli = long long;
 
@@ -22,6 +22,7 @@ namespace ic
     void load_intcode()
     {
         inputs_ = loadIntcode(sourceDirectory + "/input");
+
         std::map<lli, lli> context;
         for (lli i = 0; i < inputs_.size(); ++i)
             context_[i] = inputs_[i];
@@ -100,43 +101,18 @@ namespace ic
 
     //Output variables
 
-    int total = 0;
-    int x = 0;
-    bool second = true;
-
-    int min_x;
-    int max_x;
-    bool is_beam;
-    std::map<std::pair<lli, lli>, char> map;
-
     inline void output(std::array<lli*, 3>& operands, bool& running, std::vector<lli>& outputs)
     {
         //OUTPUT
-
-        if(!second)
+        if(*operands[0] < 128)
         {
-            if (*operands[0] == 1)
-            {
-                ++total;
-                std::cout << '#';
-            }
-            else
-            {
-                std::cout << '.';
-            }
-            ++x;
-            if (x == 50)
-            {
-                x = 0;
-                std::cout << '\n';
-            }
+            std::cout << static_cast<char>(*operands[0]);
         }
         else
         {
-            is_beam = *operands[0] == 1;
+            std::cout << std::endl << *operands[0] << std::endl;
         }
         i += 2;
-
     }
 
     std::vector<lli> intcode(std::vector<lli> inputs = {})
@@ -174,78 +150,83 @@ namespace ic
     }
 }
 
+
 void task_01(){
     ic::load_intcode();
     ic::reset_computer();
-    ic::second = false;
+    std::cout << "First: ";
 
-    for(lli i = 0; i < 50; ++i)
+    std::vector<std::string> instructions;
+
+    instructions.emplace_back("NOT A J");
+    instructions.emplace_back("AND D J");
+
+    instructions.emplace_back("NOT B T");
+    instructions.emplace_back("AND D T");
+    instructions.emplace_back("OR T J");
+
+    instructions.emplace_back("NOT C T");
+    instructions.emplace_back("AND D T");
+    instructions.emplace_back("OR T J");
+
+    instructions.emplace_back("WALK");
+
+    std::vector<lli> program;
+
+    for(auto& instruction : instructions)
     {
-        for (lli j = 0; j < 50; ++j)
+        for(char c : instruction)
         {
-            ic::reset_computer();
-            ic::intcode({ j, i });
+            program.emplace_back(static_cast<lli>(c));
         }
+        program.emplace_back(static_cast<lli>('\n'));
     }
-    std::cout << std::endl << "First: " << ic::total;
+    ic::intcode(program);
 }
 
 void task_02(){
     ic::load_intcode();
     ic::reset_computer();
-    std::cout << "\nSecond: ";
-    ic::second = true;
+    std::cout << "Second: ";
 
-    lli x = 0;
-    lli y = 0;
-    lli min_x = 0;
+    std::vector<std::string> instructions;
 
-    std::set<std::pair<lli, lli>> beam_pos;
+    instructions.emplace_back("NOT A J");
+    instructions.emplace_back("AND D J");
 
-    bool is_first = true;
-    while (true)
+    instructions.emplace_back("NOT B T");
+    instructions.emplace_back("AND D T");
+    instructions.emplace_back("OR T J");
+
+    instructions.emplace_back("NOT C T");
+    instructions.emplace_back("AND D T");
+    instructions.emplace_back("OR T J");
+
+    instructions.emplace_back("AND H T");
+    instructions.emplace_back("OR H T");
+    instructions.emplace_back("OR E T");
+    instructions.emplace_back("AND T J");
+
+
+
+    instructions.emplace_back("RUN");
+
+    std::vector<lli> program;
+
+    for (auto& instruction : instructions)
     {
-        ic::reset_computer();
-        ic::intcode({ x, y });
-        if(is_first)
+        for (char c : instruction)
         {
-            if(!ic::is_beam)
-            {
-                ++min_x;
-            }
-            else
-            {
-                beam_pos.insert({ x, y });
-            }
-            is_first = false;
-            ++x;
+            program.emplace_back(static_cast<lli>(c));
         }
-        else
-        {
-            if (!ic::is_beam)
-            {
-                x = min_x;
-                ++y;
-                is_first = true;
-            }
-            else
-            {
-                beam_pos.insert({ x, y });
-
-                if(beam_pos.find({x - 99, y})!= beam_pos.end() && beam_pos.find({ x, y - 99}) != beam_pos.end())
-                {
-                    std::cout << x - 99 << ' ' << y - 99;
-                    break;
-                }
-                ++x;
-            }
-        }
+        program.emplace_back(static_cast<lli>('\n'));
     }
+    ic::intcode(program);
 }
 
-void solution(){
-    task_01();
-    task_02();
+int main() {
+  task_01();
+  task_02();
 }
 
-#endif //AOC_19_H
+#endif //AOC_21_H

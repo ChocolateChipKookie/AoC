@@ -1,7 +1,7 @@
 //Advent of Code 2019 day 9
 #ifndef AOC_09_H
 #define AOC_09_H
-#include "../../util.h"
+#include "util.hpp"
 #include <iostream>
 #include <algorithm>
 
@@ -21,9 +21,9 @@ void task_02(){
     print_solution(9, true, out[0]);
 }
 
-void solution(){
-    task_01();
-    task_02();
+int main() {
+  task_01();
+  task_02();
 }
 
 #endif //AOC_09_H

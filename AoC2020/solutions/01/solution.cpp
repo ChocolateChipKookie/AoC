@@ -4,10 +4,7 @@
 
 #ifndef AOC_SOLUTION_H
 #define AOC_SOLUTION_H
-#include "../../util.h"
-#include <iostream>
-#include <set>
-#include <algorithm>
+#include "util.hpp"
 
 void task_01(const std::vector<size_t>& data){
     for (auto i1 : data){
@@ -33,10 +30,10 @@ void task_02(const std::vector<size_t>& data){
     }
 }
 
-void solution(){
+int main(){
     auto data = loadTokens<size_t>("../solutions/day01/input");
-    taks_01(data);
-    taks_02(data);
+    task_01(data);
+    task_02(data);
 }
 
 #endif //AOC_SOLUTION_H

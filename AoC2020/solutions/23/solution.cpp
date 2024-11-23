@@ -1,12 +1,8 @@
 //Advent of Code 2020 day 23
 #ifndef AOC_23_H
 #define AOC_23_H
-#include "../../util.h"
-#include <iostream>
+#include "util.hpp"
 #include <algorithm>
-#include <numeric>
-#include <memory>
-#include <memory_resource>
 #include <list>
 
 std::string sourceDirectory = "../AoC2020/solutions/23";
@@ -142,7 +138,7 @@ void task_02(){
     print_solution(23, false, res);
 }
 
-void solution(){
+int main(){
     task_01();
     task_02();
 }
