@@ -1,5 +1,5 @@
 # Project exclude paths
 build/
-.cache
+.cache/
 target/
 .projectile
