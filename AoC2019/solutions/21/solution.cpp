@@ -3,9 +3,7 @@
 #define AOC_21_H
 #include "util.hpp"
 #include <iostream>
-#include <algorithm>
 #include <map>
-#include <set>
 
 std::string sourceDirectory = "../AoC2019/solutions/21";
 

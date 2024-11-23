@@ -2,8 +2,6 @@
 #ifndef AOC_09_H
 #define AOC_09_H
 #include "util.hpp"
-#include <iostream>
-#include <algorithm>
 
 std::string sourceDirectory = "../AoC2019/solutions/09";
 
