@@ -25,8 +25,19 @@ function(add_solution_target file_path)
   # Add targets based on file type
   if(solution_ext STREQUAL "cpp")
     message("Adding c++ target: ${target_name} (${file_path})")
-    add_executable(${target_name} "${file_path}")
-    target_include_directories(${target_name} PRIVATE "${solution_year_path}/include")
+    set(cpp_target_name "${target_name}-build")
+    add_executable(${cpp_target_name} ${file_path})
+    target_include_directories(${cpp_target_name} PRIVATE "${solution_year_path}/include")
+
+    set_target_properties(${cpp_target_name}
+      PROPERTIES
+      RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/cpp/"
+    )
+    add_custom_target(${target_name}
+      COMMAND $<TARGET_FILE:${cpp_target_name}>
+      DEPENDS ${cpp_target_name}
+    )
+
     #   elseif(ext STREQUAL ".rs")
     #       add_custom_target(${target_name}
     #           COMMAND cargo build --manifest-path ${file_path}
