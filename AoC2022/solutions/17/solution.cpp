@@ -85,7 +85,7 @@ void print(const std::vector<Layer> &layers, const Position &reference,
 
   for (size_t y = layers.size() - 1; y < layers.size(); --y) {
     for (size_t x = 0; x < width; ++x) {
-      if (rock_positions.contains({x, y})) {
+      if (rock_positions.contains({static_cast<int_t>(x), static_cast<int_t>(y)})) {
         std::cout << '@';
         continue;
       }
@@ -130,7 +130,7 @@ void task_01(const kki::string &input) {
 
   size_t jet_i = 0;
   size_t rock_id = 0;
-  Position reference{2, layers.size() - 1};
+  Position reference{2, static_cast<int_t>(layers.size() - 1)};
 
   int_t rock_count = 0;
   int_t total_rocks = 2022;
@@ -156,7 +156,7 @@ void task_01(const kki::string &input) {
       while (!is_empty(layers[layers.size() - 4])) {
         layers.push_back(empty_layer());
       }
-      reference = {2, layers.size() - 1};
+      reference = {2, static_cast<int_t>(layers.size() - 1)};
       rock_id = (rock_id + 1) % rocks.size();
       ++rock_count;
     }
@@ -174,7 +174,7 @@ void task_02(const kki::string &input) {
 
   size_t jet_i = 0;
   size_t rock_id = 0;
-  Position reference{2, layers.size() - 1};
+  Position reference{2, static_cast<int_t>(layers.size() - 1)};
 
   int_t rock_count = 0;
   int_t total_rocks = 1000000000000;
@@ -189,8 +189,8 @@ void task_02(const kki::string &input) {
     if (jet_i == input.size()) {
       jet_i = 0;
       if (layers_skipped == 0) {
-        std::array<int_t, 10> state{rock_id,
-                                    layers.size() - reference[1],
+        std::array<int_t, 10> state{static_cast<int_t>(rock_id),
+                                    static_cast<int_t>(layers.size() - reference[1]),
                                     reference[0],
                                     hash_layer(layers[layers.size() - 4]),
                                     hash_layer(layers[layers.size() - 5]),
@@ -205,7 +205,7 @@ void task_02(const kki::string &input) {
           layers_skipped = cycles_skipped * (layers.size() - states[state][1]);
           rock_count += period * cycles_skipped;
         } else {
-          states[state] = {rock_count, layers.size()};
+          states[state] = {rock_count, static_cast<int_t>(layers.size())};
         }
       }
     }
@@ -227,7 +227,7 @@ void task_02(const kki::string &input) {
       while (!is_empty(layers[layers.size() - 4])) {
         layers.push_back(empty_layer());
       }
-      reference = {2, layers.size() - 1};
+      reference = {2, static_cast<int_t>(layers.size() - 1)};
       rock_id = (rock_id + 1) % rocks.size();
       ++rock_count;
     }

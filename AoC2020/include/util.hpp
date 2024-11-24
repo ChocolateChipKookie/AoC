@@ -4,6 +4,7 @@
 
 #ifndef AOC_UTIL_H
 #define AOC_UTIL_H
+#include <utility>
 #include <vector>
 #include <string>
 #include <sstream>
@@ -107,6 +108,7 @@ public:
             terminated = true;
             return 1;
         }
+        std::unreachable();
     }
 
     long long int pc{0};
