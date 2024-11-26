@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.28)
 project(AoC)
 
-# enable_language(C CXX Rust Python)
+find_package (Python COMPONENTS Interpreter)
 set(CMAKE_CXX_STANDARD 23)
 
 function(add_solution_target file_path)
@@ -42,9 +42,10 @@ function(add_solution_target file_path)
     #       add_custom_target(${target_name}
     #           COMMAND cargo build --manifest-path ${file_path}
     #           WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${dir_name})
-    #   elseif(ext STREQUAL ".py")
-    #       add_custom_target(${target_name}
-    #           COMMAND ${Python_EXECUTABLE} "${file_path}")
+  elseif(solution_ext STREQUAL "py")
+    message("Adding c++ target: ${target_name} (${file_path})")
+    add_custom_target(${target_name}
+        COMMAND ${Python_EXECUTABLE} "${file_path}")
   else()
     message("Unsupported file type: ${file_path}")
   endif()
