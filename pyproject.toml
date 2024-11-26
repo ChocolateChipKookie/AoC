@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 advent-of-code-data = "^2.0.1"
+click = "^8.1.7"
 
 [tool.poetry.dev-dependencies]
 black = "^23.12.0"
